@@ -19,7 +19,7 @@
 #include "../inc/LaunchPad.h"
 #include "../inc/tm4c123gh6pm.h"
 #include "../inc/CortexM.h"
-#include "Unified_Port_Init.h"
+#include "ports.h"
 
 // ------------------------ Unified Port Init --------------------------------
 void Unified_Port_Init(void)
@@ -113,14 +113,55 @@ void Port_A_Init(void)
 // ---------------- PORT B Initialization --------------------------------
 // ----------------------------------------------------------------------------
 //
-// PB0 = LED3
-void Port_B_Init(void)
-{
+// PB7 = PWM Ouptut to JP6 (M0PWM1)
+// PB6 = PWM Output to Motor (M0PWM0)
+// PB5 = ADC Input (AIN11)
+// PB4 = Timer Capture input (T1CCP0)
+// PB3 = GPIO
+// PB2 = GPIO/I2C0
+// PB1 = GPIO/I2C0CL
+// PB0 = ST7735 Card CS
+void Port_B_Init(void){
+
+ SYSCTL_RCGCPWM_R |= 0x01; // activate PWM0
+
+ SYSCTL_RCGCGPIO_R |= 0x02; // activate port B
+ while((SYSCTL_PRGPIO_R & 0x02) == 0){}; // Wait
+
+ // --------------- Initialize PB7 as M0PWM1 -----------------------
+ GPIO_PORTB_AFSEL_R |= 0x80; // enable alt funct on PB7
+ GPIO_PORTB_PCTL_R &= ~0xF0000000; // configure PB7 as M0PWM1
+ GPIO_PORTB_PCTL_R |= 0x40000000;
+GPIO_PORTB_AMSEL_R &= ~0x80; // disable analog functionality on PB7
+ GPIO_PORTB_DEN_R |= 0x80; // enable digital I/O on PB7
+ // --------------- Initialize PB6 as M0PWM0 -----------------------
+ GPIO_PORTB_AFSEL_R |= 0x40; // enable alt funct on PB6
+ GPIO_PORTB_PCTL_R &= ~0x0F000000; // configure PB6 as PWM0
+ GPIO_PORTB_PCTL_R |= 0x04000000;
+ GPIO_PORTB_AMSEL_R &= ~0x40; // disable analog functionality on PB6
+ GPIO_PORTB_DEN_R |= 0x40; // enable digital I/O on PB6
+
+ // --------------- Initialize PB5 as AIN11 -----------------------
+ GPIO_PORTB_DIR_R &= ~0x20; // make PB5 input
+ GPIO_PORTB_AFSEL_R |= 0x20; // enable alternate function on PB5
+ GPIO_PORTB_DEN_R &= ~0x20; // disable digital I/O on PB5
+ GPIO_PORTB_AMSEL_R |= 0x20; // enable analog functionality on PB5
+ // ----------------- Initialize PB4 as Timer Capture input (T1CCP0) ---------
+ GPIO_PORTB_DIR_R &= ~0x10; // make PB4 input
+ GPIO_PORTB_AFSEL_R |= 0x10; // enable alt funct on PB4
+ GPIO_PORTB_DEN_R |= 0x10; // enable digital I/O on PB4
+ // configure PB4 (T1CCP0)
+ GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R
+ & 0xFFF0FFFF)
++ 0x00070000;
+ GPIO_PORTB_AMSEL_R &= ~0x10; // disable analog functionality on PB4
+ // ----------------- Initialize PB3-0 as GPIO ---------
+
  GPIO_PORTB_PCTL_R &= ~0x0000FFFF; // GPIO
- GPIO_PORTB_DIR_R &= 0x00; // make PB3-0 out
- GPIO_PORTB_AFSEL_R &= ~0x01; // regular port function
- GPIO_PORTB_DEN_R |= 0x01; // enable digital I/O on PB3-0
- GPIO_PORTB_AMSEL_R &= ~0x01; // disable analog functionality on PB3-0
+ GPIO_PORTB_DIR_R |= 0x0F; // make PB3-0 out
+ GPIO_PORTB_AFSEL_R &= ~0x0F; // regular port function
+ GPIO_PORTB_DEN_R |= 0x0F; // enable digital I/O on PB3-0
+ GPIO_PORTB_AMSEL_R &= ~0x0F; // disable analog functionality on PB3-0
 
 
  }
@@ -128,9 +169,9 @@ void Port_B_Init(void)
 // ---------------- PORT C Initialization --------------------------------
 // ----------------------------------------------------------------------------
 //
-// PC4 = LED2
-// PC5 = LED1
-// PC6 = Joystick 1 Horizontal
+// PC4 = Reset
+// PC5 = Pause
+// PC6 = Joystick 1 Horizontal	
 // PC7 = Joystick 1 Vertical
 //
 void Port_C_Init(void){
@@ -141,11 +182,10 @@ void Port_C_Init(void){
  GPIO_PORTC_PCTL_R &= ~0xFFFF0000; // regular GPIO
  GPIO_PORTC_AMSEL_R &= ~0x30; // disable analog function on PC4,5
  GPIO_PORTC_AMSEL_R |= 0xC0; // enable analog function on PC6,7
- GPIO_PORTC_DIR_R &= ~0xC0; // inputs on PC7-PC6
- GPIO_PORTC_DIR_R |= 0x30; //outputs on PC5-PC4
+ GPIO_PORTC_DIR_R &= ~0xF0; // inputs on PC7-PC4
  GPIO_PORTC_AFSEL_R &= ~0xF0; // regular port function
  GPIO_PORTC_PUR_R = 0x00; // disable pull-up on PC7-PC4
- GPIO_PORTC_PDR_R = 0x00;	// enable pull-down on PC4,5
+ GPIO_PORTC_PDR_R = 0x30;	// enable pull-down on PC4,5
  GPIO_PORTC_DEN_R |= 0x0; // enable digital port
  }
 
@@ -233,4 +273,63 @@ void Port_F_Init(void){
  GPIO_PORTF_AFSEL_R = 0x00; // disable alt funct on PF7-0
  GPIO_PORTF_PUR_R = 0x11; // enable pull-up on PF0 and PF4
  GPIO_PORTF_DEN_R = 0x1F; // enable digital I/O on PF4-0
+}
+
+void Timer0A_Init(uint32_t period, uint32_t priority)
+{
+  SYSCTL_RCGCTIMER_R |= 0x01;      // 0) activate timer0
+  TIMER0_CTL_R &= ~0x00000001;     // 1) disable timer0A during setup
+  TIMER0_CFG_R = 0x00000000;       // 2) configure for 32-bit timer mode
+  TIMER0_TAMR_R = 0x00000001;      // 3) configure for oneshot mode
+  TIMER0_TAILR_R = period-1;       // 4) reload value
+  TIMER0_TAPR_R = 0;               // 5) 12.5ns timer0A
+  TIMER0_ICR_R = 0x00000001;       // 6) clear timer0A timeout flag
+  TIMER0_IMR_R |= 0x00000001;      // 7) arm timeout interrupt
+  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|(priority<<29); 
+  NVIC_EN0_R |= 0x00080000;     	 // 9) enable interrupt 19 in NVIC
+  TIMER0_CTL_R |= 0x00000001;      // 10)enable timer0A
+}
+
+void Timer1A_Init(uint32_t period, uint32_t priority)
+{
+  SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
+  TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
+  TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode
+  TIMER1_TAILR_R = period-1;    // 4) reload value
+  TIMER1_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
+  TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|(priority<<13); 
+  NVIC_EN0_R |= 1<<21;          // 9) enable IRQ 21 in NVIC
+  TIMER1_CTL_R = 0x00000001;    // 10)enable TIMER1A
+}
+
+void Timer2A_Init(uint32_t period, uint32_t priority)
+{
+  SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+  TIMER2_CTL_R = 0x00000000;    // 1) disable timer2A during setup
+  TIMER2_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER2_TAMR_R = 0x00000002;   // 3) configure for periodic mode
+  TIMER2_TAILR_R = period-1;    // 4) reload value
+  TIMER2_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER2_ICR_R = 0x00000001;    // 6) clear timer2a timeout flag
+  TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|(priority<<29); 
+  NVIC_EN0_R = 1<<23;           // 9) enable IRQ 23 in NVIC
+  TIMER2_CTL_R = 0x00000001;    // 10)enable timer2A
+}
+
+void Timer3A_Init(uint32_t period, uint32_t priority){
+  SYSCTL_RCGCTIMER_R |= 0x08;   // 0) activate TIMER3
+  TIMER3_CTL_R = 0x00000000;    // 1) disable TIMER3A during setup
+  TIMER3_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER3_TAMR_R = 0x00000002;   // 3) configure for periodic mode
+  TIMER3_TAILR_R = period-1;    // 4) reload value
+  TIMER3_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER3_ICR_R = 0x00000001;    // 6) clear TIMER3A timeout flag
+  TIMER3_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI8_R = (NVIC_PRI8_R&0x00FFFFFF)|(priority<<29); 
+  NVIC_EN1_R = 1<<(35-32);      // 9) enable IRQ 35 in NVIC
+  TIMER3_CTL_R = 0x00000001;    // 10) enable TIMER3A
 }

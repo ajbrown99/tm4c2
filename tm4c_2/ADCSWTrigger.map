@@ -8,13 +8,15 @@ Section Cross References
     startup.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup.o(RESET) refers to startup.o(STACK) for StackMem
-    startup.o(RESET) refers to adctestmain.o(i.Timer0A_Handler) for Timer0A_Handler
-    startup.o(RESET) refers to adctestmain.o(i.Timer3A_Handler) for Timer3A_Handler
-    startup.o(RESET) refers to texas.o(i.Timer5A_Handler) for Timer5A_Handler
+    startup.o(RESET) refers to controls.o(i.Timer0A_Handler) for Timer0A_Handler
+    startup.o(RESET) refers to game.o(i.Timer1A_Handler) for Timer1A_Handler
+    startup.o(RESET) refers to game.o(i.Timer2A_Handler) for Timer2A_Handler
+    startup.o(RESET) refers to uart.o(i.UART7_Handler) for UART7_Handler
     startup.o(RESET) refers to __main.o(!!!main) for __main
     startup.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup.o(.text) refers to startup.o(HEAP) for HeapMem
     startup.o(.text) refers to startup.o(STACK) for StackMem
+    adctestmain.o(i.OutCRLF) refers to uart.o(i.UART_OutChar) for UART_OutChar
     adctestmain.o(i.Output_Clear) refers to adctestmain.o(i.ST7735_FillScreen) for ST7735_FillScreen
     adctestmain.o(i.Output_Color) refers to adctestmain.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
     adctestmain.o(i.Output_Init) refers to adctestmain.o(i.ST7735_InitR) for ST7735_InitR
@@ -124,15 +126,20 @@ Section Cross References
     adctestmain.o(i.ST7735_SetRotation) refers to adctestmain.o(.data) for Rotation
     adctestmain.o(i.ST7735_SetTextColor) refers to adctestmain.o(.data) for StTextColor
     adctestmain.o(i.ST7735_SetX) refers to adctestmain.o(.data) for X
+    adctestmain.o(i.ST7735_XYplot) refers to adctestmain.o(i.calculate_y_pixel) for calculate_y_pixel
+    adctestmain.o(i.ST7735_XYplot) refers to adctestmain.o(i.calculate_x_pixel) for calculate_x_pixel
+    adctestmain.o(i.ST7735_XYplot) refers to adctestmain.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    adctestmain.o(i.ST7735_XYplot) refers to adctestmain.o(.data) for store_min_x
+    adctestmain.o(i.ST7735_XYplotInit) refers to adctestmain.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    adctestmain.o(i.ST7735_XYplotInit) refers to adctestmain.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    adctestmain.o(i.ST7735_XYplotInit) refers to adctestmain.o(i.ST7735_FillRect) for ST7735_FillRect
+    adctestmain.o(i.ST7735_XYplotInit) refers to adctestmain.o(i.ST7735_OutString) for ST7735_OutString
+    adctestmain.o(i.ST7735_XYplotInit) refers to adctestmain.o(i.ST7735_initialize_coord) for ST7735_initialize_coord
+    adctestmain.o(i.ST7735_initialize_coord) refers to adctestmain.o(.data) for store_min_x
     adctestmain.o(i.ST7735_sDecOut2) refers to adctestmain.o(i.ST7735_OutString) for ST7735_OutString
     adctestmain.o(i.ST7735_sDecOut2) refers to adctestmain.o(i.ST7735_OutUDec) for ST7735_OutUDec
     adctestmain.o(i.ST7735_uBinOut6) refers to adctestmain.o(i.ST7735_OutString) for ST7735_OutString
     adctestmain.o(i.ST7735_uBinOut6) refers to adctestmain.o(i.ST7735_OutUDec) for ST7735_OutUDec
-    adctestmain.o(i.Timer0A_Handler) refers to adcswtrigger.o(i.ADC0_InSeq3) for ADC0_InSeq3
-    adctestmain.o(i.Timer0A_Handler) refers to adctestmain.o(i.graphResults) for graphResults
-    adctestmain.o(i.Timer0A_Handler) refers to adctestmain.o(.data) for ADCvalue
-    adctestmain.o(i.Timer0A_Handler) refers to adctestmain.o(.bss) for ADCMeasurements
-    adctestmain.o(i.Timer0A_Init100HzInt) refers to startup.o(.text) for DisableInterrupts
     adctestmain.o(i.commandList) refers to adctestmain.o(i.writecommand) for writecommand
     adctestmain.o(i.commandList) refers to adctestmain.o(i.writedata) for writedata
     adctestmain.o(i.commandList) refers to adctestmain.o(i.Delay1ms) for Delay1ms
@@ -148,22 +155,18 @@ Section Cross References
     adctestmain.o(i.fillmessage5) refers to adctestmain.o(.data) for Messageindex
     adctestmain.o(i.fillmessage5) refers to adctestmain.o(.bss) for Message
     adctestmain.o(i.fputc) refers to adctestmain.o(i.ST7735_OutChar) for ST7735_OutChar
-    adctestmain.o(i.graphResults) refers to adctestmain.o(i.ST7735_PlotClear) for ST7735_PlotClear
-    adctestmain.o(i.graphResults) refers to adctestmain.o(i.ST7735_PlotBar) for ST7735_PlotBar
-    adctestmain.o(i.graphResults) refers to adctestmain.o(i.ST7735_PlotNext) for ST7735_PlotNext
-    adctestmain.o(i.graphResults) refers to adctestmain.o(.bss) for PMF
-    adctestmain.o(i.main) refers to texas.o(i.TExaS_SetTask) for TExaS_SetTask
-    adctestmain.o(i.main) refers to launchpad.o(i.LaunchPad_Init) for LaunchPad_Init
-    adctestmain.o(i.main) refers to adctestmain.o(i.Output_Init) for Output_Init
-    adctestmain.o(i.main) refers to adctestmain.o(i.Timer1_Init) for Timer1_Init
-    adctestmain.o(i.main) refers to adctestmain.o(i.Port_D_Init) for Port_D_Init
-    adctestmain.o(i.main) refers to adctestmain.o(i.DAC_Init) for DAC_Init
-    adctestmain.o(i.main) refers to adctestmain.o(i.Timer3A_Init) for Timer3A_Init
-    adctestmain.o(i.main) refers to adcswtrigger.o(i.ADC0_InitSWTriggerSeq3) for ADC0_InitSWTriggerSeq3
-    adctestmain.o(i.main) refers to adctestmain.o(i.Timer0A_Init100HzInt) for Timer0A_Init100HzInt
-    adctestmain.o(i.main) refers to startup.o(.text) for EnableInterrupts
-    adctestmain.o(i.main) refers to adctestmain.o(i.DAC_Out) for DAC_Out
-    adctestmain.o(i.main) refers to adctestmain.o(i.ScopeTask) for ScopeTask
+    adctestmain.o(i.main) refers to startup.o(.text) for DisableInterrupts
+    adctestmain.o(i.main) refers to pll.o(i.PLL_Init) for PLL_Init
+    adctestmain.o(i.main) refers to ports.o(i.Unified_Port_Init) for Unified_Port_Init
+    adctestmain.o(i.main) refers to adctestmain.o(i.ST7735_InitR) for ST7735_InitR
+    adctestmain.o(i.main) refers to uart.o(i.UART_Init) for UART_Init
+    adctestmain.o(i.main) refers to adctestmain.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    adctestmain.o(i.main) refers to uart.o(i.UART_OutUDec) for UART_OutUDec
+    adctestmain.o(i.main) refers to adctestmain.o(i.OutCRLF) for OutCRLF
+    adctestmain.o(i.main) refers to uart.o(i.UART_InUDec) for UART_InUDec
+    adctestmain.o(i.main) refers to adctestmain.o(i.ST7735_OutUDec) for ST7735_OutUDec
+    adctestmain.o(i.main) refers to uart.o(i.RxFifo_Init) for RxFifo_Init
+    adctestmain.o(i.main) refers to uart.o(i.TxFifo_Init) for TxFifo_Init
     adctestmain.o(i.plotLineX) refers to adctestmain.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
     adctestmain.o(i.plotLineY) refers to adctestmain.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
     adctestmain.o(i.pushColor) refers to adctestmain.o(i.writedata) for writedata
@@ -172,39 +175,61 @@ Section Cross References
     adctestmain.o(i.setAddrWindow) refers to adctestmain.o(.data) for ColStart
     adcswtrigger.o(i.ADC0_InSeq2) refers to adcswtrigger.o(.data) for UserTask2
     adcswtrigger.o(i.ADC0_InitSWTriggerSeq2) refers to adcswtrigger.o(.data) for UserTask2
-    texas.o(i.LogicAnalyzer) refers to texas.o(.data) for LogicData
-    texas.o(i.PeriodicTask2_Init) refers to startup.o(.text) for StartCritical
-    texas.o(i.PeriodicTask2_Init) refers to texas.o(.data) for PeriodicTask2
-    texas.o(i.TExaS_Clear0) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Clear1) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Clear2) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Clear3) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Clear5) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Clear6) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Init) refers to texas.o(i.UART_Init) for UART_Init
-    texas.o(i.TExaS_Init) refers to texas.o(i.PeriodicTask2_Init) for PeriodicTask2_Init
-    texas.o(i.TExaS_Init) refers to texas.o(i.ADC1_Init) for ADC1_Init
-    texas.o(i.TExaS_Init) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Init) refers to texas.o(i.LogicAnalyzer) for LogicAnalyzer
-    texas.o(i.TExaS_Init) refers to texas.o(i.Scope) for Scope
-    texas.o(i.TExaS_Set0) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Set1) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Set2) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Set3) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Set5) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Set6) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_SetTask) refers to pll.o(i.PLL_Init) for PLL_Init
-    texas.o(i.TExaS_SetTask) refers to texas.o(i.ADC1_Init) for ADC1_Init
-    texas.o(i.TExaS_SetTask) refers to texas.o(i.UART_Init) for UART_Init
-    texas.o(i.TExaS_SetTask) refers to texas.o(i.PeriodicTask2_Init) for PeriodicTask2_Init
-    texas.o(i.TExaS_Stop) refers to texas.o(i.PeriodicTask2_Stop) for PeriodicTask2_Stop
-    texas.o(i.TExaS_Task0) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Task1) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Task2) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Task3) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Task5) refers to texas.o(.data) for LogicData
-    texas.o(i.TExaS_Task6) refers to texas.o(.data) for LogicData
-    texas.o(i.Timer5A_Handler) refers to texas.o(.data) for PeriodicTask2
+    launchpad.o(i.LaunchPad_WaitForRelease) refers to launchpad.o(i.DelayMs) for DelayMs
+    launchpad.o(i.LaunchPad_WaitForTouch) refers to launchpad.o(i.DelayMs) for DelayMs
+    controls.o(i.GPIOPortC) refers to ports.o(i.Timer0A_Init) for Timer0A_Init
+    controls.o(i.Timer0A_Handler) refers to controls.o(i.rearmButtonsC) for rearmButtonsC
+    ports.o(i.Unified_Port_Init) refers to ports.o(i.Port_A_Init) for Port_A_Init
+    ports.o(i.Unified_Port_Init) refers to ports.o(i.Port_B_Init) for Port_B_Init
+    ports.o(i.Unified_Port_Init) refers to ports.o(i.Port_C_Init) for Port_C_Init
+    ports.o(i.Unified_Port_Init) refers to ports.o(i.Port_D_Init) for Port_D_Init
+    ports.o(i.Unified_Port_Init) refers to ports.o(i.Port_F_Init) for Port_F_Init
+    uart.o(i.RxFifo_Get) refers to uart.o(.data) for RxPutI
+    uart.o(i.RxFifo_Get) refers to uart.o(.bss) for RxFifo
+    uart.o(i.RxFifo_Init) refers to startup.o(.text) for StartCritical
+    uart.o(i.RxFifo_Init) refers to uart.o(.data) for RxGetI
+    uart.o(i.RxFifo_Put) refers to uart.o(.data) for RxPutI
+    uart.o(i.RxFifo_Put) refers to uart.o(.bss) for RxFifo
+    uart.o(i.RxFifo_Size) refers to uart.o(.data) for RxPutI
+    uart.o(i.TxFifo_Get) refers to uart.o(.data) for TxPutI
+    uart.o(i.TxFifo_Get) refers to uart.o(.bss) for TxFifo
+    uart.o(i.TxFifo_Init) refers to startup.o(.text) for StartCritical
+    uart.o(i.TxFifo_Init) refers to uart.o(.data) for TxGetI
+    uart.o(i.TxFifo_Put) refers to uart.o(.data) for TxPutI
+    uart.o(i.TxFifo_Put) refers to uart.o(.bss) for TxFifo
+    uart.o(i.TxFifo_Size) refers to uart.o(.data) for TxPutI
+    uart.o(i.UART7_Handler) refers to uart.o(i.copySoftwareToHardware) for copySoftwareToHardware
+    uart.o(i.UART7_Handler) refers to uart.o(i.TxFifo_Size) for TxFifo_Size
+    uart.o(i.UART7_Handler) refers to uart.o(i.copyHardwareToSoftware) for copyHardwareToSoftware
+    uart.o(i.UART_InChar) refers to uart.o(i.RxFifo_Get) for RxFifo_Get
+    uart.o(i.UART_InCharNonBlock) refers to uart.o(i.RxFifo_Get) for RxFifo_Get
+    uart.o(i.UART_InString) refers to uart.o(i.UART_InChar) for UART_InChar
+    uart.o(i.UART_InString) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.UART_InUDec) refers to uart.o(i.UART_InChar) for UART_InChar
+    uart.o(i.UART_InUDec) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.UART_InUHex) refers to uart.o(i.UART_InChar) for UART_InChar
+    uart.o(i.UART_InUHex) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.UART_Init) refers to uart.o(i.RxFifo_Init) for RxFifo_Init
+    uart.o(i.UART_Init) refers to uart.o(i.TxFifo_Init) for TxFifo_Init
+    uart.o(i.UART_OutChar) refers to uart.o(i.TxFifo_Put) for TxFifo_Put
+    uart.o(i.UART_OutChar) refers to uart.o(i.copySoftwareToHardware) for copySoftwareToHardware
+    uart.o(i.UART_OutString) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.UART_OutUDec) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.UART_OutUHex) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.copyHardwareToSoftware) refers to uart.o(i.RxFifo_Put) for RxFifo_Put
+    uart.o(i.copyHardwareToSoftware) refers to uart.o(i.RxFifo_Size) for RxFifo_Size
+    uart.o(i.copySoftwareToHardware) refers to uart.o(i.TxFifo_Get) for TxFifo_Get
+    uart.o(i.copySoftwareToHardware) refers to uart.o(i.TxFifo_Size) for TxFifo_Size
+    game.o(i.Timer1A_Handler) refers to adctestmain.o(i.ST7735_DrawCircle) for ST7735_DrawCircle
+    game.o(i.Timer1A_Handler) refers to game.o(i.transmit_puck_info) for transmit_puck_info
+    game.o(i.Timer1A_Handler) refers to game.o(i.current_game_state) for current_game_state
+    game.o(i.Timer1A_Handler) refers to game.o(.data) for current_game
+    game.o(i.Timer2A_Handler) refers to game.o(i.receive_puck_info) for receive_puck_info
+    game.o(i.current_game_state) refers to adctestmain.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    game.o(i.receive_puck_info) refers to uart.o(i.UART_InUDec) for UART_InUDec
+    game.o(i.receive_puck_info) refers to game.o(.data) for current_game
+    game.o(i.transmit_puck_info) refers to uart.o(i.UART_OutUDec) for UART_OutUDec
+    game.o(i.transmit_puck_info) refers to game.o(.data) for current_game
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
@@ -310,28 +335,28 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
-    Removing adctestmain.o(i.LogicAnalyzerTask), (24 bytes).
     Removing adctestmain.o(i.Output_Clear), (10 bytes).
     Removing adctestmain.o(i.Output_Color), (12 bytes).
+    Removing adctestmain.o(i.Output_Init), (16 bytes).
     Removing adctestmain.o(i.Output_Off), (8 bytes).
     Removing adctestmain.o(i.Output_On), (8 bytes).
+    Removing adctestmain.o(i.ST7735_Color565), (24 bytes).
     Removing adctestmain.o(i.ST7735_DrawBitmap), (292 bytes).
     Removing adctestmain.o(i.ST7735_DrawChar), (276 bytes).
-    Removing adctestmain.o(i.ST7735_DrawCharS), (248 bytes).
-    Removing adctestmain.o(i.ST7735_DrawCircle), (172 bytes).
     Removing adctestmain.o(i.ST7735_DrawFastHLine), (128 bytes).
-    Removing adctestmain.o(i.ST7735_DrawPixel), (76 bytes).
+    Removing adctestmain.o(i.ST7735_DrawFastVLine), (128 bytes).
     Removing adctestmain.o(i.ST7735_DrawSmallCircle), (172 bytes).
-    Removing adctestmain.o(i.ST7735_DrawString), (86 bytes).
     Removing adctestmain.o(i.ST7735_InitB), (40 bytes).
     Removing adctestmain.o(i.ST7735_InvertDisplay), (26 bytes).
     Removing adctestmain.o(i.ST7735_Line), (126 bytes).
     Removing adctestmain.o(i.ST7735_OutChar), (212 bytes).
     Removing adctestmain.o(i.ST7735_OutString), (24 bytes).
-    Removing adctestmain.o(i.ST7735_OutUDec), (140 bytes).
     Removing adctestmain.o(i.ST7735_OutUDec4), (140 bytes).
     Removing adctestmain.o(i.ST7735_OutUDec5), (140 bytes).
+    Removing adctestmain.o(i.ST7735_PlotBar), (88 bytes).
+    Removing adctestmain.o(i.ST7735_PlotClear), (92 bytes).
     Removing adctestmain.o(i.ST7735_PlotLine), (264 bytes).
+    Removing adctestmain.o(i.ST7735_PlotNext), (32 bytes).
     Removing adctestmain.o(i.ST7735_PlotNextErase), (64 bytes).
     Removing adctestmain.o(i.ST7735_PlotPoint), (152 bytes).
     Removing adctestmain.o(i.ST7735_PlotPoints), (172 bytes).
@@ -340,22 +365,25 @@ Removing Unused input sections from the image.
     Removing adctestmain.o(i.ST7735_SetTextColor), (12 bytes).
     Removing adctestmain.o(i.ST7735_SetX), (36 bytes).
     Removing adctestmain.o(i.ST7735_SwapColor), (18 bytes).
-    Removing adctestmain.o(i.ST7735_XYplot), (2 bytes).
-    Removing adctestmain.o(i.ST7735_XYplotInit), (6 bytes).
+    Removing adctestmain.o(i.ST7735_XYplot), (148 bytes).
+    Removing adctestmain.o(i.ST7735_XYplotInit), (68 bytes).
+    Removing adctestmain.o(i.ST7735_initialize_coord), (36 bytes).
     Removing adctestmain.o(i.ST7735_sDecOut2), (304 bytes).
     Removing adctestmain.o(i.ST7735_uBinOut6), (228 bytes).
+    Removing adctestmain.o(i.calculate_x_pixel), (18 bytes).
+    Removing adctestmain.o(i.calculate_y_pixel), (20 bytes).
     Removing adctestmain.o(i.ferror), (8 bytes).
     Removing adctestmain.o(i.fgetc), (6 bytes).
-    Removing adctestmain.o(i.fillmessage), (72 bytes).
     Removing adctestmain.o(i.fillmessage4), (100 bytes).
     Removing adctestmain.o(i.fillmessage5), (128 bytes).
     Removing adctestmain.o(i.fputc), (16 bytes).
     Removing adctestmain.o(i.plotLineX), (166 bytes).
     Removing adctestmain.o(i.plotLineY), (164 bytes).
-    Removing adctestmain.o(i.pushColor), (18 bytes).
     Removing adcswtrigger.o(i.ADC0_InSeq2), (80 bytes).
+    Removing adcswtrigger.o(i.ADC0_InSeq3), (44 bytes).
     Removing adcswtrigger.o(i.ADC0_InSeq3_InternalTemperature), (64 bytes).
     Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq2), (224 bytes).
+    Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq3), (1016 bytes).
     Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq3_Ch7), (248 bytes).
     Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq3_Ch9), (248 bytes).
     Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq3_InternalTemperature), (128 bytes).
@@ -364,36 +392,28 @@ Removing Unused input sections from the image.
     Removing adcswtrigger.o(i.ADC_Init3210), (248 bytes).
     Removing adcswtrigger.o(i.ADC_Init89), (220 bytes).
     Removing adcswtrigger.o(.data), (4 bytes).
-    Removing texas.o(i.LogicAnalyzer), (20 bytes).
-    Removing texas.o(i.PeriodicTask2_Stop), (36 bytes).
-    Removing texas.o(i.Scope), (20 bytes).
-    Removing texas.o(i.TExaS_Clear0), (20 bytes).
-    Removing texas.o(i.TExaS_Clear1), (20 bytes).
-    Removing texas.o(i.TExaS_Clear2), (20 bytes).
-    Removing texas.o(i.TExaS_Clear3), (20 bytes).
-    Removing texas.o(i.TExaS_Clear4), (2 bytes).
-    Removing texas.o(i.TExaS_Clear5), (20 bytes).
-    Removing texas.o(i.TExaS_Clear6), (20 bytes).
-    Removing texas.o(i.TExaS_Init), (84 bytes).
-    Removing texas.o(i.TExaS_Set0), (20 bytes).
-    Removing texas.o(i.TExaS_Set1), (20 bytes).
-    Removing texas.o(i.TExaS_Set2), (20 bytes).
-    Removing texas.o(i.TExaS_Set3), (20 bytes).
-    Removing texas.o(i.TExaS_Set4), (2 bytes).
-    Removing texas.o(i.TExaS_Set5), (20 bytes).
-    Removing texas.o(i.TExaS_Set6), (20 bytes).
-    Removing texas.o(i.TExaS_Stop), (8 bytes).
-    Removing texas.o(i.TExaS_Task0), (20 bytes).
-    Removing texas.o(i.TExaS_Task1), (20 bytes).
-    Removing texas.o(i.TExaS_Task2), (20 bytes).
-    Removing texas.o(i.TExaS_Task3), (20 bytes).
-    Removing texas.o(i.TExaS_Task4), (2 bytes).
-    Removing texas.o(i.TExaS_Task5), (20 bytes).
-    Removing texas.o(i.TExaS_Task6), (20 bytes).
-    Removing texas.o(i.UART_InChar), (28 bytes).
-    Removing texas.o(i.UART_OutChar), (24 bytes).
+    Removing launchpad.o(i.DelayMs), (32 bytes).
+    Removing launchpad.o(i.LaunchPad_Init), (92 bytes).
+    Removing launchpad.o(i.LaunchPad_Input), (24 bytes).
+    Removing launchpad.o(i.LaunchPad_Output), (12 bytes).
+    Removing launchpad.o(i.LaunchPad_WaitForRelease), (56 bytes).
+    Removing launchpad.o(i.LaunchPad_WaitForTouch), (32 bytes).
+    Removing controls.o(i.GPIOPortC), (24 bytes).
+    Removing controls.o(i.disarmButtonsC), (20 bytes).
+    Removing controls.o(i.initButtons), (92 bytes).
+    Removing ports.o(i.Port_E_Init), (100 bytes).
+    Removing ports.o(i.Timer0A_Init), (116 bytes).
+    Removing ports.o(i.Timer1A_Init), (96 bytes).
+    Removing ports.o(i.Timer2A_Init), (88 bytes).
+    Removing ports.o(i.Timer3A_Init), (84 bytes).
+    Removing uart.o(i.UART_InCharNonBlock), (20 bytes).
+    Removing uart.o(i.UART_InString), (70 bytes).
+    Removing uart.o(i.UART_InUHex), (108 bytes).
+    Removing uart.o(i.UART_OutString), (24 bytes).
+    Removing uart.o(i.UART_OutUHex), (52 bytes).
+    Removing game.o(.constdata), (4 bytes).
 
-82 unused section(s) (total 6758 bytes) removed from the image.
+77 unused section(s) (total 8204 bytes) removed from the image.
 
 ==============================================================================
 
@@ -404,60 +424,63 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     ..\inc\ADCSWTrigger.c                    0x00000000   Number         0  adcswtrigger.o ABSOLUTE
     ..\inc\LaunchPad.c                       0x00000000   Number         0  launchpad.o ABSOLUTE
     ..\inc\PLL.c                             0x00000000   Number         0  pll.o ABSOLUTE
-    ..\inc\Texas.c                           0x00000000   Number         0  texas.o ABSOLUTE
     ADCTestMain.c                            0x00000000   Number         0  adctestmain.o ABSOLUTE
+    UART.c                                   0x00000000   Number         0  uart.o ABSOLUTE
+    controls.c                               0x00000000   Number         0  controls.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    game.c                                   0x00000000   Number         0  game.o ABSOLUTE
+    ports.c                                  0x00000000   Number         0  ports.o ABSOLUTE
     startup.s                                0x00000000   Number         0  startup.o ABSOLUTE
     !!!main                                  0x00000284   Section        8  __main.o(!!!main)
     !!!scatter                               0x0000028c   Section       52  __scatter.o(!!!scatter)
@@ -513,70 +536,90 @@ Image Symbol Table
     .text                                    0x000003bc   Section        0  sys_exit.o(.text)
     .text                                    0x000003c8   Section        2  use_no_semi.o(.text)
     .text                                    0x000003ca   Section        0  indicate_semi.o(.text)
-    i.ADC0_InSeq3                            0x000003cc   Section        0  adcswtrigger.o(i.ADC0_InSeq3)
-    i.ADC0_InitSWTriggerSeq3                 0x000003f8   Section        0  adcswtrigger.o(i.ADC0_InitSWTriggerSeq3)
-    i.ADC1_Init                              0x000007f0   Section        0  texas.o(i.ADC1_Init)
-    i.DAC_Init                               0x000008b8   Section        0  adctestmain.o(i.DAC_Init)
-    i.DAC_Out                                0x00000914   Section        0  adctestmain.o(i.DAC_Out)
-    i.Delay1ms                               0x0000093c   Section        0  adctestmain.o(i.Delay1ms)
-    i.LaunchPad_Init                         0x0000095c   Section        0  launchpad.o(i.LaunchPad_Init)
-    i.Output_Init                            0x000009c0   Section        0  adctestmain.o(i.Output_Init)
-    i.PLL_Init                               0x000009d0   Section        0  pll.o(i.PLL_Init)
-    i.PeriodicTask2_Init                     0x00000a4c   Section        0  texas.o(i.PeriodicTask2_Init)
-    i.Port_D_Init                            0x00000b04   Section        0  adctestmain.o(i.Port_D_Init)
-    i.ST7735_Color565                        0x00000bfc   Section        0  adctestmain.o(i.ST7735_Color565)
-    i.ST7735_DrawFastVLine                   0x00000c14   Section        0  adctestmain.o(i.ST7735_DrawFastVLine)
-    i.ST7735_FillRect                        0x00000c94   Section        0  adctestmain.o(i.ST7735_FillRect)
-    i.ST7735_FillScreen                      0x00000d44   Section        0  adctestmain.o(i.ST7735_FillScreen)
-    i.ST7735_InitR                           0x00000d68   Section        0  adctestmain.o(i.ST7735_InitR)
-    i.ST7735_PlotBar                         0x00000de4   Section        0  adctestmain.o(i.ST7735_PlotBar)
-    i.ST7735_PlotClear                       0x00000e3c   Section        0  adctestmain.o(i.ST7735_PlotClear)
-    i.ST7735_PlotNext                        0x00000e98   Section        0  adctestmain.o(i.ST7735_PlotNext)
-    i.ST7735_SetCursor                       0x00000eb8   Section        0  adctestmain.o(i.ST7735_SetCursor)
-    i.ScopeTask                              0x00000ed8   Section        0  adctestmain.o(i.ScopeTask)
-    i.TExaS_SetTask                          0x00000eec   Section        0  texas.o(i.TExaS_SetTask)
-    i.Timer0A_Handler                        0x00000f18   Section        0  adctestmain.o(i.Timer0A_Handler)
-    i.Timer0A_Init100HzInt                   0x00001074   Section        0  adctestmain.o(i.Timer0A_Init100HzInt)
-    i.Timer1_Init                            0x000010ec   Section        0  adctestmain.o(i.Timer1_Init)
-    i.Timer3A_Handler                        0x00001124   Section        0  adctestmain.o(i.Timer3A_Handler)
-    i.Timer3A_Init                           0x00001130   Section        0  adctestmain.o(i.Timer3A_Init)
-    i.Timer5A_Handler                        0x00001184   Section        0  texas.o(i.Timer5A_Handler)
-    i.UART_Init                              0x0000119c   Section        0  texas.o(i.UART_Init)
-    i.commandList                            0x00001238   Section        0  adctestmain.o(i.commandList)
-    commandList                              0x00001239   Thumb Code    86  adctestmain.o(i.commandList)
-    i.commonInit                             0x00001290   Section        0  adctestmain.o(i.commonInit)
-    commonInit                               0x00001291   Thumb Code   342  adctestmain.o(i.commonInit)
-    i.deselect                               0x00001418   Section        0  adctestmain.o(i.deselect)
-    deselect                                 0x00001419   Thumb Code    24  adctestmain.o(i.deselect)
-    i.graphResults                           0x00001434   Section        0  adctestmain.o(i.graphResults)
-    i.main                                   0x00001478   Section        0  adctestmain.o(i.main)
-    i.setAddrWindow                          0x000014ec   Section        0  adctestmain.o(i.setAddrWindow)
-    setAddrWindow                            0x000014ed   Thumb Code   106  adctestmain.o(i.setAddrWindow)
-    i.writecommand                           0x00001560   Section        0  adctestmain.o(i.writecommand)
-    writecommand                             0x00001561   Thumb Code    46  adctestmain.o(i.writecommand)
-    i.writedata                              0x00001598   Section        0  adctestmain.o(i.writedata)
-    writedata                                0x00001599   Thumb Code    26  adctestmain.o(i.writedata)
-    .constdata                               0x000015bc   Section     2114  adctestmain.o(.constdata)
-    Font                                     0x000015bc   Data        1275  adctestmain.o(.constdata)
-    Bcmd                                     0x00001ab7   Data         103  adctestmain.o(.constdata)
-    Rcmd1                                    0x00001b1e   Data          59  adctestmain.o(.constdata)
-    Rcmd2green                               0x00001b59   Data          13  adctestmain.o(.constdata)
-    Rcmd2red                                 0x00001b66   Data          13  adctestmain.o(.constdata)
-    Rcmd3                                    0x00001b73   Data          43  adctestmain.o(.constdata)
-    .data                                    0x20000000   Section       72  adctestmain.o(.data)
-    ColStart                                 0x2000000a   Data           1  adctestmain.o(.data)
-    RowStart                                 0x2000000b   Data           1  adctestmain.o(.data)
-    Rotation                                 0x2000000c   Data           1  adctestmain.o(.data)
-    TabColor                                 0x2000000d   Data           1  adctestmain.o(.data)
-    _width                                   0x2000000e   Data           2  adctestmain.o(.data)
-    _height                                  0x20000010   Data           2  adctestmain.o(.data)
-    .data                                    0x20000048   Section        8  texas.o(.data)
-    .bss                                     0x20000050   Section    22396  adctestmain.o(.bss)
-    .bss                                     0x200057cc   Section       96  libspace.o(.bss)
-    HEAP                                     0x20005830   Section        0  startup.o(HEAP)
-    STACK                                    0x20005830   Section     1024  startup.o(STACK)
-    HeapMem                                  0x20005830   Data           0  startup.o(HEAP)
-    StackMem                                 0x20005830   Data           0  startup.o(STACK)
+    i.Delay1ms                               0x000003ca   Section        0  adctestmain.o(i.Delay1ms)
+    i.OutCRLF                                0x000003ea   Section        0  adctestmain.o(i.OutCRLF)
+    i.PLL_Init                               0x000003fc   Section        0  pll.o(i.PLL_Init)
+    i.Port_A_Init                            0x00000478   Section        0  ports.o(i.Port_A_Init)
+    i.Port_B_Init                            0x000005a8   Section        0  ports.o(i.Port_B_Init)
+    i.Port_C_Init                            0x0000072c   Section        0  ports.o(i.Port_C_Init)
+    i.Port_D_Init                            0x000007b0   Section        0  ports.o(i.Port_D_Init)
+    i.Port_F_Init                            0x000008a8   Section        0  ports.o(i.Port_F_Init)
+    i.RxFifo_Get                             0x0000090c   Section        0  uart.o(i.RxFifo_Get)
+    i.RxFifo_Init                            0x00000948   Section        0  uart.o(i.RxFifo_Init)
+    i.RxFifo_Put                             0x0000096c   Section        0  uart.o(i.RxFifo_Put)
+    i.RxFifo_Size                            0x000009a8   Section        0  uart.o(i.RxFifo_Size)
+    i.ST7735_DrawCharS                       0x000009bc   Section        0  adctestmain.o(i.ST7735_DrawCharS)
+    i.ST7735_DrawCircle                      0x00000ab4   Section        0  adctestmain.o(i.ST7735_DrawCircle)
+    i.ST7735_DrawPixel                       0x00000b60   Section        0  adctestmain.o(i.ST7735_DrawPixel)
+    i.ST7735_DrawString                      0x00000bac   Section        0  adctestmain.o(i.ST7735_DrawString)
+    i.ST7735_FillRect                        0x00000c04   Section        0  adctestmain.o(i.ST7735_FillRect)
+    i.ST7735_FillScreen                      0x00000cb4   Section        0  adctestmain.o(i.ST7735_FillScreen)
+    i.ST7735_InitR                           0x00000cd8   Section        0  adctestmain.o(i.ST7735_InitR)
+    i.ST7735_OutUDec                         0x00000d54   Section        0  adctestmain.o(i.ST7735_OutUDec)
+    i.ST7735_SetCursor                       0x00000de0   Section        0  adctestmain.o(i.ST7735_SetCursor)
+    i.Timer0A_Handler                        0x00000e00   Section        0  controls.o(i.Timer0A_Handler)
+    i.Timer1A_Handler                        0x00000e14   Section        0  game.o(i.Timer1A_Handler)
+    i.Timer2A_Handler                        0x00000fe0   Section        0  game.o(i.Timer2A_Handler)
+    i.TxFifo_Get                             0x00000ff4   Section        0  uart.o(i.TxFifo_Get)
+    i.TxFifo_Init                            0x00001030   Section        0  uart.o(i.TxFifo_Init)
+    i.TxFifo_Put                             0x00001054   Section        0  uart.o(i.TxFifo_Put)
+    i.TxFifo_Size                            0x00001090   Section        0  uart.o(i.TxFifo_Size)
+    i.UART7_Handler                          0x000010a4   Section        0  uart.o(i.UART7_Handler)
+    i.UART_InChar                            0x000010fc   Section        0  uart.o(i.UART_InChar)
+    i.UART_InUDec                            0x00001110   Section        0  uart.o(i.UART_InUDec)
+    i.UART_Init                              0x0000115c   Section        0  uart.o(i.UART_Init)
+    i.UART_OutChar                           0x00001220   Section        0  uart.o(i.UART_OutChar)
+    i.UART_OutUDec                           0x00001254   Section        0  uart.o(i.UART_OutUDec)
+    i.Unified_Port_Init                      0x0000127e   Section        0  ports.o(i.Unified_Port_Init)
+    i.commandList                            0x00001296   Section        0  adctestmain.o(i.commandList)
+    commandList                              0x00001297   Thumb Code    86  adctestmain.o(i.commandList)
+    i.commonInit                             0x000012ec   Section        0  adctestmain.o(i.commonInit)
+    commonInit                               0x000012ed   Thumb Code   342  adctestmain.o(i.commonInit)
+    i.copyHardwareToSoftware                 0x00001474   Section        0  uart.o(i.copyHardwareToSoftware)
+    copyHardwareToSoftware                   0x00001475   Thumb Code    36  uart.o(i.copyHardwareToSoftware)
+    i.copySoftwareToHardware                 0x0000149c   Section        0  uart.o(i.copySoftwareToHardware)
+    copySoftwareToHardware                   0x0000149d   Thumb Code    38  uart.o(i.copySoftwareToHardware)
+    i.current_game_state                     0x000014c8   Section        0  game.o(i.current_game_state)
+    i.deselect                               0x000014d4   Section        0  adctestmain.o(i.deselect)
+    deselect                                 0x000014d5   Thumb Code    24  adctestmain.o(i.deselect)
+    i.fillmessage                            0x000014f0   Section        0  adctestmain.o(i.fillmessage)
+    i.main                                   0x00001538   Section        0  adctestmain.o(i.main)
+    i.pushColor                              0x0000158e   Section        0  adctestmain.o(i.pushColor)
+    pushColor                                0x0000158f   Thumb Code    18  adctestmain.o(i.pushColor)
+    i.rearmButtonsC                          0x000015a0   Section        0  controls.o(i.rearmButtonsC)
+    i.receive_puck_info                      0x000015e4   Section        0  game.o(i.receive_puck_info)
+    i.setAddrWindow                          0x00001678   Section        0  adctestmain.o(i.setAddrWindow)
+    setAddrWindow                            0x00001679   Thumb Code   106  adctestmain.o(i.setAddrWindow)
+    i.transmit_puck_info                     0x000016ec   Section        0  game.o(i.transmit_puck_info)
+    i.writecommand                           0x0000173c   Section        0  adctestmain.o(i.writecommand)
+    writecommand                             0x0000173d   Thumb Code    46  adctestmain.o(i.writecommand)
+    i.writedata                              0x00001774   Section        0  adctestmain.o(i.writedata)
+    writedata                                0x00001775   Thumb Code    26  adctestmain.o(i.writedata)
+    .constdata                               0x00001798   Section     2114  adctestmain.o(.constdata)
+    Font                                     0x00001798   Data        1275  adctestmain.o(.constdata)
+    Bcmd                                     0x00001c93   Data         103  adctestmain.o(.constdata)
+    Rcmd1                                    0x00001cfa   Data          59  adctestmain.o(.constdata)
+    Rcmd2green                               0x00001d35   Data          13  adctestmain.o(.constdata)
+    Rcmd2red                                 0x00001d42   Data          13  adctestmain.o(.constdata)
+    Rcmd3                                    0x00001d4f   Data          43  adctestmain.o(.constdata)
+    .data                                    0x20000000   Section       60  adctestmain.o(.data)
+    ColStart                                 0x2000001c   Data           1  adctestmain.o(.data)
+    RowStart                                 0x2000001d   Data           1  adctestmain.o(.data)
+    Rotation                                 0x2000001e   Data           1  adctestmain.o(.data)
+    TabColor                                 0x2000001f   Data           1  adctestmain.o(.data)
+    _width                                   0x20000020   Data           2  adctestmain.o(.data)
+    _height                                  0x20000022   Data           2  adctestmain.o(.data)
+    .data                                    0x2000003c   Section       16  uart.o(.data)
+    .data                                    0x2000004c   Section       12  game.o(.data)
+    .bss                                     0x20000058   Section       12  adctestmain.o(.bss)
+    .bss                                     0x20000064   Section      128  uart.o(.bss)
+    RxFifo                                   0x20000064   Data          64  uart.o(.bss)
+    TxFifo                                   0x200000a4   Data          64  uart.o(.bss)
+    .bss                                     0x200000e4   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000148   Section        0  startup.o(HEAP)
+    STACK                                    0x20000148   Section     1024  startup.o(STACK)
+    HeapMem                                  0x20000148   Data           0  startup.o(HEAP)
+    StackMem                                 0x20000148   Data           0  startup.o(STACK)
 
     Global Symbols
 
@@ -703,13 +746,13 @@ Image Symbol Table
     SSI3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
     SysCtl_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
     Timer0B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
-    Timer1A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer1B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
-    Timer2A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer2B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer3B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer4A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer4B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer5A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer5B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     UART0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
     UART1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
@@ -718,7 +761,6 @@ Image Symbol Table
     UART4_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
     UART5_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
     UART6_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
-    UART7_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
     USB0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
     WDT_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
     WideTimer0A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
@@ -801,67 +843,74 @@ Image Symbol Table
     _sys_exit                                0x000003bd   Thumb Code     8  sys_exit.o(.text)
     __I$use$semihosting                      0x000003c9   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x000003c9   Thumb Code     2  use_no_semi.o(.text)
+    Delay1ms                                 0x000003cb   Thumb Code    32  adctestmain.o(i.Delay1ms)
     __semihosting_library_function           0x000003cb   Thumb Code     0  indicate_semi.o(.text)
-    ADC0_InSeq3                              0x000003cd   Thumb Code    38  adcswtrigger.o(i.ADC0_InSeq3)
-    ADC0_InitSWTriggerSeq3                   0x000003f9   Thumb Code   976  adcswtrigger.o(i.ADC0_InitSWTriggerSeq3)
-    ADC1_Init                                0x000007f1   Thumb Code   176  texas.o(i.ADC1_Init)
-    DAC_Init                                 0x000008b9   Thumb Code    82  adctestmain.o(i.DAC_Init)
-    DAC_Out                                  0x00000915   Thumb Code    34  adctestmain.o(i.DAC_Out)
-    Delay1ms                                 0x0000093d   Thumb Code    32  adctestmain.o(i.Delay1ms)
-    LaunchPad_Init                           0x0000095d   Thumb Code    80  launchpad.o(i.LaunchPad_Init)
-    Output_Init                              0x000009c1   Thumb Code    16  adctestmain.o(i.Output_Init)
-    PLL_Init                                 0x000009d1   Thumb Code   120  pll.o(i.PLL_Init)
-    PeriodicTask2_Init                       0x00000a4d   Thumb Code   160  texas.o(i.PeriodicTask2_Init)
-    Port_D_Init                              0x00000b05   Thumb Code   228  adctestmain.o(i.Port_D_Init)
-    ST7735_Color565                          0x00000bfd   Thumb Code    24  adctestmain.o(i.ST7735_Color565)
-    ST7735_DrawFastVLine                     0x00000c15   Thumb Code   120  adctestmain.o(i.ST7735_DrawFastVLine)
-    ST7735_FillRect                          0x00000c95   Thumb Code   168  adctestmain.o(i.ST7735_FillRect)
-    ST7735_FillScreen                        0x00000d45   Thumb Code    28  adctestmain.o(i.ST7735_FillScreen)
-    ST7735_InitR                             0x00000d69   Thumb Code    90  adctestmain.o(i.ST7735_InitR)
-    ST7735_PlotBar                           0x00000de5   Thumb Code    72  adctestmain.o(i.ST7735_PlotBar)
-    ST7735_PlotClear                         0x00000e3d   Thumb Code    74  adctestmain.o(i.ST7735_PlotClear)
-    ST7735_PlotNext                          0x00000e99   Thumb Code    28  adctestmain.o(i.ST7735_PlotNext)
-    ST7735_SetCursor                         0x00000eb9   Thumb Code    22  adctestmain.o(i.ST7735_SetCursor)
-    ScopeTask                                0x00000ed9   Thumb Code    12  adctestmain.o(i.ScopeTask)
-    TExaS_SetTask                            0x00000eed   Thumb Code    40  texas.o(i.TExaS_SetTask)
-    Timer0A_Handler                          0x00000f19   Thumb Code   300  adctestmain.o(i.Timer0A_Handler)
-    Timer0A_Init100HzInt                     0x00001075   Thumb Code    98  adctestmain.o(i.Timer0A_Init100HzInt)
-    Timer1_Init                              0x000010ed   Thumb Code    46  adctestmain.o(i.Timer1_Init)
-    Timer3A_Handler                          0x00001125   Thumb Code     8  adctestmain.o(i.Timer3A_Handler)
-    Timer3A_Init                             0x00001131   Thumb Code    68  adctestmain.o(i.Timer3A_Init)
-    Timer5A_Handler                          0x00001185   Thumb Code    16  texas.o(i.Timer5A_Handler)
-    UART_Init                                0x0000119d   Thumb Code   138  texas.o(i.UART_Init)
-    graphResults                             0x00001435   Thumb Code    64  adctestmain.o(i.graphResults)
-    main                                     0x00001479   Thumb Code   104  adctestmain.o(i.main)
-    smallCircle                              0x00001b9e   Data          36  adctestmain.o(.constdata)
-    circle                                   0x00001bc2   Data          60  adctestmain.o(.constdata)
-    dBfs                                     0x00001bfe   Data         512  adctestmain.o(.constdata)
-    Region$$Table$$Base                      0x00001e00   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001e20   Number         0  anon$$obj.o(Region$$Table)
+    OutCRLF                                  0x000003eb   Thumb Code    16  adctestmain.o(i.OutCRLF)
+    PLL_Init                                 0x000003fd   Thumb Code   120  pll.o(i.PLL_Init)
+    Port_A_Init                              0x00000479   Thumb Code   266  ports.o(i.Port_A_Init)
+    Port_B_Init                              0x000005a9   Thumb Code   372  ports.o(i.Port_B_Init)
+    Port_C_Init                              0x0000072d   Thumb Code   114  ports.o(i.Port_C_Init)
+    Port_D_Init                              0x000007b1   Thumb Code   228  ports.o(i.Port_D_Init)
+    Port_F_Init                              0x000008a9   Thumb Code    80  ports.o(i.Port_F_Init)
+    RxFifo_Get                               0x0000090d   Thumb Code    46  uart.o(i.RxFifo_Get)
+    RxFifo_Init                              0x00000949   Thumb Code    26  uart.o(i.RxFifo_Init)
+    RxFifo_Put                               0x0000096d   Thumb Code    48  uart.o(i.RxFifo_Put)
+    RxFifo_Size                              0x000009a9   Thumb Code    12  uart.o(i.RxFifo_Size)
+    ST7735_DrawCharS                         0x000009bd   Thumb Code   236  adctestmain.o(i.ST7735_DrawCharS)
+    ST7735_DrawCircle                        0x00000ab5   Thumb Code   158  adctestmain.o(i.ST7735_DrawCircle)
+    ST7735_DrawPixel                         0x00000b61   Thumb Code    68  adctestmain.o(i.ST7735_DrawPixel)
+    ST7735_DrawString                        0x00000bad   Thumb Code    86  adctestmain.o(i.ST7735_DrawString)
+    ST7735_FillRect                          0x00000c05   Thumb Code   168  adctestmain.o(i.ST7735_FillRect)
+    ST7735_FillScreen                        0x00000cb5   Thumb Code    28  adctestmain.o(i.ST7735_FillScreen)
+    ST7735_InitR                             0x00000cd9   Thumb Code    90  adctestmain.o(i.ST7735_InitR)
+    ST7735_OutUDec                           0x00000d55   Thumb Code   118  adctestmain.o(i.ST7735_OutUDec)
+    ST7735_SetCursor                         0x00000de1   Thumb Code    22  adctestmain.o(i.ST7735_SetCursor)
+    Timer0A_Handler                          0x00000e01   Thumb Code    14  controls.o(i.Timer0A_Handler)
+    Timer1A_Handler                          0x00000e15   Thumb Code   452  game.o(i.Timer1A_Handler)
+    Timer2A_Handler                          0x00000fe1   Thumb Code    14  game.o(i.Timer2A_Handler)
+    TxFifo_Get                               0x00000ff5   Thumb Code    46  uart.o(i.TxFifo_Get)
+    TxFifo_Init                              0x00001031   Thumb Code    26  uart.o(i.TxFifo_Init)
+    TxFifo_Put                               0x00001055   Thumb Code    48  uart.o(i.TxFifo_Put)
+    TxFifo_Size                              0x00001091   Thumb Code    12  uart.o(i.TxFifo_Size)
+    UART7_Handler                            0x000010a5   Thumb Code    82  uart.o(i.UART7_Handler)
+    UART_InChar                              0x000010fd   Thumb Code    20  uart.o(i.UART_InChar)
+    UART_InUDec                              0x00001111   Thumb Code    76  uart.o(i.UART_InUDec)
+    UART_Init                                0x0000115d   Thumb Code   170  uart.o(i.UART_Init)
+    UART_OutChar                             0x00001221   Thumb Code    46  uart.o(i.UART_OutChar)
+    UART_OutUDec                             0x00001255   Thumb Code    42  uart.o(i.UART_OutUDec)
+    Unified_Port_Init                        0x0000127f   Thumb Code    24  ports.o(i.Unified_Port_Init)
+    current_game_state                       0x000014c9   Thumb Code    12  game.o(i.current_game_state)
+    fillmessage                              0x000014f1   Thumb Code    64  adctestmain.o(i.fillmessage)
+    main                                     0x00001539   Thumb Code    86  adctestmain.o(i.main)
+    rearmButtonsC                            0x000015a1   Thumb Code    62  controls.o(i.rearmButtonsC)
+    receive_puck_info                        0x000015e5   Thumb Code   144  game.o(i.receive_puck_info)
+    transmit_puck_info                       0x000016ed   Thumb Code    76  game.o(i.transmit_puck_info)
+    smallCircle                              0x00001d7a   Data          36  adctestmain.o(.constdata)
+    circle                                   0x00001d9e   Data          60  adctestmain.o(.constdata)
+    dBfs                                     0x00001dda   Data         512  adctestmain.o(.constdata)
+    Region$$Table$$Base                      0x00001fdc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001ffc   Number         0  anon$$obj.o(Region$$Table)
     StX                                      0x20000000   Data           4  adctestmain.o(.data)
     StY                                      0x20000004   Data           4  adctestmain.o(.data)
     StTextColor                              0x20000008   Data           2  adctestmain.o(.data)
-    Messageindex                             0x20000014   Data           4  adctestmain.o(.data)
-    Ymax                                     0x20000018   Data           4  adctestmain.o(.data)
-    Ymin                                     0x2000001c   Data           4  adctestmain.o(.data)
-    X                                        0x20000020   Data           4  adctestmain.o(.data)
-    Yrange                                   0x20000024   Data           4  adctestmain.o(.data)
-    lastj                                    0x20000028   Data           4  adctestmain.o(.data)
-    ADCPosition                              0x2000002c   Data           2  adctestmain.o(.data)
-    smallestDiff                             0x20000030   Data           4  adctestmain.o(.data)
-    largestDiff                              0x20000034   Data           4  adctestmain.o(.data)
-    jitter                                   0x20000038   Data           4  adctestmain.o(.data)
-    minVal                                   0x2000003c   Data           4  adctestmain.o(.data)
-    maxVal                                   0x20000040   Data           4  adctestmain.o(.data)
-    ADCvalue                                 0x20000044   Data           4  adctestmain.o(.data)
-    LogicData                                0x20000048   Data           1  texas.o(.data)
-    PeriodicTask2                            0x2000004c   Data           4  texas.o(.data)
-    Message                                  0x20000050   Data          12  adctestmain.o(.bss)
-    ADCMeasurements                          0x2000005c   Data        2000  adctestmain.o(.bss)
-    ADCTimes                                 0x2000082c   Data        4000  adctestmain.o(.bss)
-    PMF                                      0x200017cc   Data       16384  adctestmain.o(.bss)
-    __libspace_start                         0x200057cc   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x2000582c   Data           0  libspace.o(.bss)
+    store_min_x                              0x2000000c   Data           4  adctestmain.o(.data)
+    store_max_x                              0x20000010   Data           4  adctestmain.o(.data)
+    store_min_y                              0x20000014   Data           4  adctestmain.o(.data)
+    store_max_y                              0x20000018   Data           4  adctestmain.o(.data)
+    Messageindex                             0x20000024   Data           4  adctestmain.o(.data)
+    Ymax                                     0x20000028   Data           4  adctestmain.o(.data)
+    Ymin                                     0x2000002c   Data           4  adctestmain.o(.data)
+    X                                        0x20000030   Data           4  adctestmain.o(.data)
+    Yrange                                   0x20000034   Data           4  adctestmain.o(.data)
+    lastj                                    0x20000038   Data           4  adctestmain.o(.data)
+    RxPutI                                   0x2000003c   Data           4  uart.o(.data)
+    RxGetI                                   0x20000040   Data           4  uart.o(.data)
+    TxPutI                                   0x20000044   Data           4  uart.o(.data)
+    TxGetI                                   0x20000048   Data           4  uart.o(.data)
+    current_game                             0x2000004c   Data          12  game.o(.data)
+    Message                                  0x20000058   Data          12  adctestmain.o(.bss)
+    __libspace_start                         0x200000e4   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000144   Data           0  libspace.o(.bss)
 
 
 
@@ -871,131 +920,146 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00001e70, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00002054, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001e20, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001ffc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000284   0x00000008   Code   RO          805  * !!!main             c_w.l(__main.o)
-    0x0000028c   0x0000028c   0x00000034   Code   RO          964    !!!scatter          c_w.l(__scatter.o)
-    0x000002c0   0x000002c0   0x0000001a   Code   RO          966    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000284   0x00000284   0x00000008   Code   RO          885  * !!!main             c_w.l(__main.o)
+    0x0000028c   0x0000028c   0x00000034   Code   RO         1044    !!!scatter          c_w.l(__scatter.o)
+    0x000002c0   0x000002c0   0x0000001a   Code   RO         1046    !!handler_copy      c_w.l(__scatter_copy.o)
     0x000002da   0x000002da   0x00000002   PAD
-    0x000002dc   0x000002dc   0x0000001c   Code   RO          968    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x000002f8   0x000002f8   0x00000002   Code   RO          832    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          839    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          841    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          844    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          846    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          848    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          851    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          853    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          855    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          857    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          859    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          861    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          863    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          865    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          867    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          869    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          871    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          875    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          877    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          879    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000000   Code   RO          881    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x000002fa   0x000002fa   0x00000002   Code   RO          882    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x000002fc   0x000002fc   0x00000002   Code   RO          902    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          915    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          917    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          919    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          922    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          925    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          927    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000000   Code   RO          930    .ARM.Collect$$libshutdown$$00000011  c_w.l(libshutdown2.o)
-    0x000002fe   0x000002fe   0x00000002   Code   RO          931    .ARM.Collect$$libshutdown$$00000012  c_w.l(libshutdown2.o)
-    0x00000300   0x00000300   0x00000000   Code   RO          807    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x00000300   0x00000300   0x00000000   Code   RO          809    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x00000300   0x00000300   0x00000006   Code   RO          821    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x00000306   0x00000306   0x00000000   Code   RO          811    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x00000306   0x00000306   0x00000004   Code   RO          812    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x0000030a   0x0000030a   0x00000000   Code   RO          814    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x0000030a   0x0000030a   0x00000008   Code   RO          815    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x00000312   0x00000312   0x00000002   Code   RO          836    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x00000314   0x00000314   0x00000000   Code   RO          884    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x00000314   0x00000314   0x00000004   Code   RO          885    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x00000318   0x00000318   0x00000006   Code   RO          886    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x000002dc   0x000002dc   0x0000001c   Code   RO         1048    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002f8   0x000002f8   0x00000002   Code   RO          912    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          919    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          921    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          924    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          926    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          928    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          931    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          933    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          935    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          937    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          939    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          941    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          943    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          945    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          947    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          949    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          951    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          955    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          957    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          959    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          961    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000002   Code   RO          962    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x000002fc   0x000002fc   0x00000002   Code   RO          982    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          995    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          997    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          999    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO         1002    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO         1005    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO         1007    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO         1010    .ARM.Collect$$libshutdown$$00000011  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000002   Code   RO         1011    .ARM.Collect$$libshutdown$$00000012  c_w.l(libshutdown2.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          887    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          889    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000300   0x00000300   0x00000006   Code   RO          901    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x00000306   0x00000306   0x00000000   Code   RO          891    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x00000306   0x00000306   0x00000004   Code   RO          892    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0000030a   0x0000030a   0x00000000   Code   RO          894    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0000030a   0x0000030a   0x00000008   Code   RO          895    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x00000312   0x00000312   0x00000002   Code   RO          916    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000314   0x00000314   0x00000000   Code   RO          964    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000314   0x00000314   0x00000004   Code   RO          965    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000318   0x00000318   0x00000006   Code   RO          966    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x0000031e   0x0000031e   0x00000002   PAD
     0x00000320   0x00000320   0x00000030   Code   RO            4    .text               startup.o
-    0x00000350   0x00000350   0x00000006   Code   RO          803    .text               c_w.l(heapauxi.o)
-    0x00000356   0x00000356   0x0000004a   Code   RO          823    .text               c_w.l(sys_stackheap_outer.o)
-    0x000003a0   0x000003a0   0x00000012   Code   RO          825    .text               c_w.l(exit.o)
+    0x00000350   0x00000350   0x00000006   Code   RO          883    .text               c_w.l(heapauxi.o)
+    0x00000356   0x00000356   0x0000004a   Code   RO          903    .text               c_w.l(sys_stackheap_outer.o)
+    0x000003a0   0x000003a0   0x00000012   Code   RO          905    .text               c_w.l(exit.o)
     0x000003b2   0x000003b2   0x00000002   PAD
-    0x000003b4   0x000003b4   0x00000008   Code   RO          833    .text               c_w.l(libspace.o)
-    0x000003bc   0x000003bc   0x0000000c   Code   RO          894    .text               c_w.l(sys_exit.o)
-    0x000003c8   0x000003c8   0x00000002   Code   RO          905    .text               c_w.l(use_no_semi.o)
-    0x000003ca   0x000003ca   0x00000000   Code   RO          907    .text               c_w.l(indicate_semi.o)
-    0x000003ca   0x000003ca   0x00000002   PAD
-    0x000003cc   0x000003cc   0x0000002c   Code   RO          475    i.ADC0_InSeq3       adcswtrigger.o
-    0x000003f8   0x000003f8   0x000003f8   Code   RO          478    i.ADC0_InitSWTriggerSeq3  adcswtrigger.o
-    0x000007f0   0x000007f0   0x000000c8   Code   RO          591    i.ADC1_Init         texas.o
-    0x000008b8   0x000008b8   0x0000005c   Code   RO           12    i.DAC_Init          adctestmain.o
-    0x00000914   0x00000914   0x00000028   Code   RO           13    i.DAC_Out           adctestmain.o
-    0x0000093c   0x0000093c   0x00000020   Code   RO           14    i.Delay1ms          adctestmain.o
-    0x0000095c   0x0000095c   0x00000064   Code   RO          573    i.LaunchPad_Init    launchpad.o
-    0x000009c0   0x000009c0   0x00000010   Code   RO           18    i.Output_Init       adctestmain.o
-    0x000009d0   0x000009d0   0x0000007c   Code   RO          558    i.PLL_Init          pll.o
-    0x00000a4c   0x00000a4c   0x000000b8   Code   RO          593    i.PeriodicTask2_Init  texas.o
-    0x00000b04   0x00000b04   0x000000f8   Code   RO           21    i.Port_D_Init       adctestmain.o
-    0x00000bfc   0x00000bfc   0x00000018   Code   RO           22    i.ST7735_Color565   adctestmain.o
-    0x00000c14   0x00000c14   0x00000080   Code   RO           28    i.ST7735_DrawFastVLine  adctestmain.o
-    0x00000c94   0x00000c94   0x000000b0   Code   RO           32    i.ST7735_FillRect   adctestmain.o
-    0x00000d44   0x00000d44   0x00000024   Code   RO           33    i.ST7735_FillScreen  adctestmain.o
-    0x00000d68   0x00000d68   0x0000007c   Code   RO           35    i.ST7735_InitR      adctestmain.o
-    0x00000de4   0x00000de4   0x00000058   Code   RO           43    i.ST7735_PlotBar    adctestmain.o
-    0x00000e3c   0x00000e3c   0x0000005c   Code   RO           44    i.ST7735_PlotClear  adctestmain.o
-    0x00000e98   0x00000e98   0x00000020   Code   RO           46    i.ST7735_PlotNext   adctestmain.o
-    0x00000eb8   0x00000eb8   0x00000020   Code   RO           51    i.ST7735_SetCursor  adctestmain.o
-    0x00000ed8   0x00000ed8   0x00000014   Code   RO           60    i.ScopeTask         adctestmain.o
-    0x00000eec   0x00000eec   0x0000002c   Code   RO          611    i.TExaS_SetTask     texas.o
-    0x00000f18   0x00000f18   0x0000015c   Code   RO           61    i.Timer0A_Handler   adctestmain.o
-    0x00001074   0x00001074   0x00000078   Code   RO           62    i.Timer0A_Init100HzInt  adctestmain.o
-    0x000010ec   0x000010ec   0x00000038   Code   RO           63    i.Timer1_Init       adctestmain.o
-    0x00001124   0x00001124   0x0000000c   Code   RO           64    i.Timer3A_Handler   adctestmain.o
-    0x00001130   0x00001130   0x00000054   Code   RO           65    i.Timer3A_Init      adctestmain.o
-    0x00001184   0x00001184   0x00000018   Code   RO          620    i.Timer5A_Handler   texas.o
-    0x0000119c   0x0000119c   0x0000009c   Code   RO          622    i.UART_Init         texas.o
-    0x00001238   0x00001238   0x00000056   Code   RO           66    i.commandList       adctestmain.o
-    0x0000128e   0x0000128e   0x00000002   PAD
-    0x00001290   0x00001290   0x00000188   Code   RO           67    i.commonInit        adctestmain.o
-    0x00001418   0x00001418   0x0000001c   Code   RO           68    i.deselect          adctestmain.o
-    0x00001434   0x00001434   0x00000044   Code   RO           75    i.graphResults      adctestmain.o
-    0x00001478   0x00001478   0x00000074   Code   RO           76    i.main              adctestmain.o
-    0x000014ec   0x000014ec   0x00000074   Code   RO           80    i.setAddrWindow     adctestmain.o
-    0x00001560   0x00001560   0x00000038   Code   RO           81    i.writecommand      adctestmain.o
-    0x00001598   0x00001598   0x00000024   Code   RO           82    i.writedata         adctestmain.o
-    0x000015bc   0x000015bc   0x00000842   Data   RO           84    .constdata          adctestmain.o
-    0x00001dfe   0x00001dfe   0x00000002   PAD
-    0x00001e00   0x00001e00   0x00000020   Data   RO          962    Region$$Table       anon$$obj.o
+    0x000003b4   0x000003b4   0x00000008   Code   RO          913    .text               c_w.l(libspace.o)
+    0x000003bc   0x000003bc   0x0000000c   Code   RO          974    .text               c_w.l(sys_exit.o)
+    0x000003c8   0x000003c8   0x00000002   Code   RO          985    .text               c_w.l(use_no_semi.o)
+    0x000003ca   0x000003ca   0x00000000   Code   RO          987    .text               c_w.l(indicate_semi.o)
+    0x000003ca   0x000003ca   0x00000020   Code   RO           12    i.Delay1ms          adctestmain.o
+    0x000003ea   0x000003ea   0x00000010   Code   RO           13    i.OutCRLF           adctestmain.o
+    0x000003fa   0x000003fa   0x00000002   PAD
+    0x000003fc   0x000003fc   0x0000007c   Code   RO          527    i.PLL_Init          pll.o
+    0x00000478   0x00000478   0x00000130   Code   RO          625    i.Port_A_Init       ports.o
+    0x000005a8   0x000005a8   0x00000184   Code   RO          626    i.Port_B_Init       ports.o
+    0x0000072c   0x0000072c   0x00000084   Code   RO          627    i.Port_C_Init       ports.o
+    0x000007b0   0x000007b0   0x000000f8   Code   RO          628    i.Port_D_Init       ports.o
+    0x000008a8   0x000008a8   0x00000064   Code   RO          630    i.Port_F_Init       ports.o
+    0x0000090c   0x0000090c   0x0000003c   Code   RO          697    i.RxFifo_Get        uart.o
+    0x00000948   0x00000948   0x00000024   Code   RO          698    i.RxFifo_Init       uart.o
+    0x0000096c   0x0000096c   0x0000003c   Code   RO          699    i.RxFifo_Put        uart.o
+    0x000009a8   0x000009a8   0x00000014   Code   RO          700    i.RxFifo_Size       uart.o
+    0x000009bc   0x000009bc   0x000000f8   Code   RO           22    i.ST7735_DrawCharS  adctestmain.o
+    0x00000ab4   0x00000ab4   0x000000ac   Code   RO           23    i.ST7735_DrawCircle  adctestmain.o
+    0x00000b60   0x00000b60   0x0000004c   Code   RO           26    i.ST7735_DrawPixel  adctestmain.o
+    0x00000bac   0x00000bac   0x00000056   Code   RO           28    i.ST7735_DrawString  adctestmain.o
+    0x00000c02   0x00000c02   0x00000002   PAD
+    0x00000c04   0x00000c04   0x000000b0   Code   RO           29    i.ST7735_FillRect   adctestmain.o
+    0x00000cb4   0x00000cb4   0x00000024   Code   RO           30    i.ST7735_FillScreen  adctestmain.o
+    0x00000cd8   0x00000cd8   0x0000007c   Code   RO           32    i.ST7735_InitR      adctestmain.o
+    0x00000d54   0x00000d54   0x0000008c   Code   RO           37    i.ST7735_OutUDec    adctestmain.o
+    0x00000de0   0x00000de0   0x00000020   Code   RO           48    i.ST7735_SetCursor  adctestmain.o
+    0x00000e00   0x00000e00   0x00000014   Code   RO          590    i.Timer0A_Handler   controls.o
+    0x00000e14   0x00000e14   0x000001cc   Code   RO          831    i.Timer1A_Handler   game.o
+    0x00000fe0   0x00000fe0   0x00000014   Code   RO          832    i.Timer2A_Handler   game.o
+    0x00000ff4   0x00000ff4   0x0000003c   Code   RO          701    i.TxFifo_Get        uart.o
+    0x00001030   0x00001030   0x00000024   Code   RO          702    i.TxFifo_Init       uart.o
+    0x00001054   0x00001054   0x0000003c   Code   RO          703    i.TxFifo_Put        uart.o
+    0x00001090   0x00001090   0x00000014   Code   RO          704    i.TxFifo_Size       uart.o
+    0x000010a4   0x000010a4   0x00000058   Code   RO          705    i.UART7_Handler     uart.o
+    0x000010fc   0x000010fc   0x00000014   Code   RO          706    i.UART_InChar       uart.o
+    0x00001110   0x00001110   0x0000004c   Code   RO          709    i.UART_InUDec       uart.o
+    0x0000115c   0x0000115c   0x000000c4   Code   RO          711    i.UART_Init         uart.o
+    0x00001220   0x00001220   0x00000034   Code   RO          712    i.UART_OutChar      uart.o
+    0x00001254   0x00001254   0x0000002a   Code   RO          714    i.UART_OutUDec      uart.o
+    0x0000127e   0x0000127e   0x00000018   Code   RO          635    i.Unified_Port_Init  ports.o
+    0x00001296   0x00001296   0x00000056   Code   RO           60    i.commandList       adctestmain.o
+    0x000012ec   0x000012ec   0x00000188   Code   RO           61    i.commonInit        adctestmain.o
+    0x00001474   0x00001474   0x00000028   Code   RO          716    i.copyHardwareToSoftware  uart.o
+    0x0000149c   0x0000149c   0x0000002c   Code   RO          717    i.copySoftwareToHardware  uart.o
+    0x000014c8   0x000014c8   0x0000000c   Code   RO          833    i.current_game_state  game.o
+    0x000014d4   0x000014d4   0x0000001c   Code   RO           62    i.deselect          adctestmain.o
+    0x000014f0   0x000014f0   0x00000048   Code   RO           65    i.fillmessage       adctestmain.o
+    0x00001538   0x00001538   0x00000056   Code   RO           69    i.main              adctestmain.o
+    0x0000158e   0x0000158e   0x00000012   Code   RO           72    i.pushColor         adctestmain.o
+    0x000015a0   0x000015a0   0x00000044   Code   RO          593    i.rearmButtonsC     controls.o
+    0x000015e4   0x000015e4   0x00000094   Code   RO          834    i.receive_puck_info  game.o
+    0x00001678   0x00001678   0x00000074   Code   RO           73    i.setAddrWindow     adctestmain.o
+    0x000016ec   0x000016ec   0x00000050   Code   RO          835    i.transmit_puck_info  game.o
+    0x0000173c   0x0000173c   0x00000038   Code   RO           74    i.writecommand      adctestmain.o
+    0x00001774   0x00001774   0x00000024   Code   RO           75    i.writedata         adctestmain.o
+    0x00001798   0x00001798   0x00000842   Data   RO           77    .constdata          adctestmain.o
+    0x00001fda   0x00001fda   0x00000002   PAD
+    0x00001fdc   0x00001fdc   0x00000020   Data   RO         1042    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001e20, Size: 0x00000050, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001ffc, Size: 0x00000058, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00001e20   0x00000048   Data   RW           85    .data               adctestmain.o
-    0x20000048   0x00001e68   0x00000008   Data   RW          624    .data               texas.o
+    0x20000000   0x00001ffc   0x0000003c   Data   RW           78    .data               adctestmain.o
+    0x2000003c   0x00002038   0x00000010   Data   RW          719    .data               uart.o
+    0x2000004c   0x00002048   0x0000000c   Data   RW          837    .data               game.o
 
 
-    Execution Region ER_ZI (Exec base: 0x20000050, Load base: 0x00001e70, Size: 0x00005be0, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000058, Load base: 0x00002054, Size: 0x000004f0, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000050        -       0x0000577c   Zero   RW           83    .bss                adctestmain.o
-    0x200057cc        -       0x00000060   Zero   RW          834    .bss                c_w.l(libspace.o)
-    0x2000582c   0x00001e70   0x00000004   PAD
-    0x20005830        -       0x00000000   Zero   RW            2    HEAP                startup.o
-    0x20005830        -       0x00000400   Zero   RW            1    STACK               startup.o
+    0x20000058        -       0x0000000c   Zero   RW           76    .bss                adctestmain.o
+    0x20000064        -       0x00000080   Zero   RW          718    .bss                uart.o
+    0x200000e4        -       0x00000060   Zero   RW          914    .bss                c_w.l(libspace.o)
+    0x20000144   0x00002054   0x00000004   PAD
+    0x20000148        -       0x00000000   Zero   RW            2    HEAP                startup.o
+    0x20000148        -       0x00000400   Zero   RW            1    STACK               startup.o
 
 
 ==============================================================================
@@ -1005,17 +1069,18 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1060         70          0          0          0       1331   adcswtrigger.o
-      2698        350       2114         72      22396      23761   adctestmain.o
-       100         20          0          0          0        437   launchpad.o
-       124          4          0          0          0        451   pll.o
-       692        632          0          0       1024        956   startup.o
-       608         78          0          8          0       3457   texas.o
+      2028        208       2114         60         12      20309   adctestmain.o
+        88         12          0          0          0        822   controls.o
+       720         30          0         12          0       3542   game.o
+       124          4          0          0          0        463   pll.o
+      1196        112          0          0          0       2670   ports.o
+       692        632          0          0       1024        980   startup.o
+       910        136          0         16        128       8616   uart.o
 
     ----------------------------------------------------------------------
-      5284       1154       2148         80      23420      30393   Object Totals
+      5762       1134       2148         88       1164      37402   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         2          0          2          0          0          0   (incl. Padding)
+         4          0          2          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1043,8 +1108,8 @@ Image component sizes
          2          0          0          0          0         68   use_no_semi.o
 
     ----------------------------------------------------------------------
-       280         16          0          0        100        584   Library Totals
-         8          0          0          0          4          0   (incl. Padding)
+       278         16          0          0        100        584   Library Totals
+         6          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1053,7 +1118,7 @@ Image component sizes
        272         16          0          0         96        584   c_w.l
 
     ----------------------------------------------------------------------
-       280         16          0          0        100        584   Library Totals
+       278         16          0          0        100        584   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1062,15 +1127,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5564       1170       2148         80      23520      29101   Grand Totals
-      5564       1170       2148         80      23520      29101   ELF Image Totals
-      5564       1170       2148         80          0          0   ROM Totals
+      6040       1150       2148         88       1264      35434   Grand Totals
+      6040       1150       2148         88       1264      35434   ELF Image Totals
+      6040       1150       2148         88          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7712 (   7.53kB)
-    Total RW  Size (RW Data + ZI Data)             23600 (  23.05kB)
-    Total ROM Size (Code + RO Data + RW Data)       7792 (   7.61kB)
+    Total RO  Size (Code + RO Data)                 8188 (   8.00kB)
+    Total RW  Size (RW Data + ZI Data)              1352 (   1.32kB)
+    Total ROM Size (Code + RO Data + RW Data)       8276 (   8.08kB)
 
 ==============================================================================
 

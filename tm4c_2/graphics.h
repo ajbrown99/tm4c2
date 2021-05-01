@@ -1,1 +1,5 @@
-void flashLED(void);
+//graphics header
+
+void graphicsInit(void);
+void changeDisplay(void);
+

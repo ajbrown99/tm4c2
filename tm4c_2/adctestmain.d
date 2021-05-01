@@ -10,3 +10,9 @@
 .\adctestmain.o: ../inc/ST7735.c
 .\adctestmain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\adctestmain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\adctestmain.o: sound.h
+.\adctestmain.o: UART.h
+.\adctestmain.o: controls.h
+.\adctestmain.o: graphics.h
+.\adctestmain.o: game.h
+.\adctestmain.o: ports.h

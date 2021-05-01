@@ -409,9 +409,24 @@
               <FilePath>..\inc\LaunchPad.c</FilePath>
             </File>
             <File>
-              <FileName>Texas.c</FileName>
+              <FileName>controls.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\inc\Texas.c</FilePath>
+              <FilePath>.\controls.c</FilePath>
+            </File>
+            <File>
+              <FileName>ports.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ports.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UART.c</FilePath>
+            </File>
+            <File>
+              <FileName>game.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\game.c</FilePath>
             </File>
           </Files>
         </Group>
