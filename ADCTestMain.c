@@ -57,8 +57,8 @@ int main(void)
 	//ST7735_InitB();
 	ST7735_InitR(INITR_REDTAB);
 	UART_Init();
-	Timer2A_Init(2000000,1);
-	//Timer1A_Init(1333333,5);
+	//Timer2A_Init(2000000,1);
+	Timer1A_Init(1333333,5);
 	ST7735_FillScreen(ST7735_WHITE);
 	
 	//DAC_Init(0);
@@ -70,6 +70,11 @@ int main(void)
 	
 	while(1)
 	{
+		//for(int i = 0; i < 1000000; i++);
+		//uint32_t test = UART_InChar();
+		receive_puck_info();
+		
+		//ST7735_OutChar(test);
 		/*
     n = (n + 1) % 212;
 		UART_OutUDec(n);

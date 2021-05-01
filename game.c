@@ -10,18 +10,9 @@
 #include <math.h>
 
 #define PF1       (*((volatile uint32_t *)0x40025008))
+#define PF2       (*((volatile uint32_t *)0x40025010))
 
-
-struct game_status {
-	bool game_over;
-	uint8_t player_1_score;
-	uint8_t player_2_score;
-	int16_t puck_x;
-	int16_t puck_y;
-	bool point_scored;
-	uint8_t puck_direction; //0:up,1:up right,2:right,3:down right,4:down,5:down left,6:left,7:up left
-	bool stop_start; //0:stop,1:start
-};
+uint32_t count = 0;
 
 
 struct game_status current_game = {false,0,0,63,79,false,3,true};
@@ -36,6 +27,7 @@ void current_game_state(void){
 
 
 void transmit_puck_info(void){
+	PF2 ^= 0x4;
 	UART_OutUDec(uart_flag_start);
 	UART_OutUDec(current_game.game_over);
 	UART_OutUDec(current_game.player_1_score);
@@ -45,46 +37,46 @@ void transmit_puck_info(void){
 	UART_OutUDec(current_game.puck_direction);
 	UART_OutUDec(current_game.stop_start);
 	UART_OutUDec(uart_flag_finish);
+	PF2 ^= 0x4;
 }
 
 void receive_puck_info(void){
+	
+	uint32_t input = UART_InChar();
 	PF1 ^= 0x2;
-	uint32_t input = UART_InUDec();
-	ST7735_OutUDec(input);
-	if(input == 212){
-		
-		bool transmission_over = false;
-		uint8_t count = 0;
-		while(transmission_over == false){
-			input = UART_InUDec();
-			if(count == 0){
-				current_game.game_over = input;
-			}
-			else if(count == 1){
-				current_game.player_1_score = input;
-			}
-			else if(count == 2){
-				current_game.player_2_score = input;
-			}
-			else if(count == 3){
-				current_game.puck_x = input;
-			}
-			else if(count == 4){
-				current_game.point_scored = input;
-			}
-			else if(count == 5){
-				current_game.puck_direction = input;
-			}
-			else if(count == 6){
-				current_game.stop_start = input;
-			}
-			count++;
-			if(input == 2120){
-				transmission_over = true;
-				current_game.puck_y = -1;
-			}
-		}
+	//ST7735_OutUDec(input);
+	if(count == 0){
+		//do nothing, received start flag
 	}
+	//got game over value
+	else if(count == 1){
+		current_game.game_over = input - '0';
+	}
+	else if(count == 2){
+		current_game.player_1_score = input - '0';
+	}
+	else if(count == 3){
+		current_game.player_2_score = input - '0';
+	}
+	else if(count == 4){
+		current_game.puck_x = (int16_t)input;
+	}
+	else if(count == 5){
+		current_game.point_scored = input - '0';
+	}
+	else if(count == 6){
+		current_game.puck_direction = input - '0';
+	}
+	else if(count == 7){
+		current_game.stop_start = input - '0';
+	}
+	else if(count == 8){
+		//do nothing, got ending flag
+		current_game.puck_y = -1;
+		//ST7735_OutUDec(current_game.puck_x);
+	}
+	PF1 ^= 0x02;
+	count = (count + 1) % 9;
 }
 
 void Timer2A_Handler(){

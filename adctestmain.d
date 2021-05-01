@@ -15,4 +15,5 @@
 .\adctestmain.o: controls.h
 .\adctestmain.o: graphics.h
 .\adctestmain.o: game.h
+.\adctestmain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\adctestmain.o: ports.h
