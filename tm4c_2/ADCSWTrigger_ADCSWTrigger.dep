@@ -1,0 +1,33 @@
+Dependencies for Project 'ADCSWTrigger', Target 'ADCSWTrigger': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\startup.s)(0x6022F416)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 533" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1" --pd "_RTE_ SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\ADCTestMain.c)(0x60348415)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\adctestmain.o --omf_browse .\adctestmain.crf --depend .\adctestmain.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
+I (../inc/ADCSWTrigger.h)(0x5E1FCD86)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+I (../inc/PLL.h)(0x5E10D0A6)
+I (../inc/LaunchPad.h)(0x5E10D0A6)
+I (../inc/CortexM.h)(0x5E10D01A)
+I (../inc/TExaS.h)(0x6005C608)
+I (../inc/ST7735.h)(0x5E23488E)
+I (../inc/ST7735.c)(0x602EEE93)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8EF392)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8EF392)
+F (..\inc\ADCSWTrigger.c)(0x5E1FCD86)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\adcswtrigger.o --omf_browse .\adcswtrigger.crf --depend .\adcswtrigger.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (..\inc\PLL.c)(0x5E1B402E)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
+I (..\inc\../inc/PLL.h)(0x5E10D0A6)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (..\inc\LaunchPad.c)(0x602B3EA1)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\launchpad.o --omf_browse .\launchpad.crf --depend .\launchpad.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
+I (..\inc\../inc/LaunchPad.h)(0x5E10D0A6)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2DA)
+I (..\inc\../inc/CortexM.h)(0x5E10D01A)
+F (..\inc\Texas.c)(0x6005C608)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\texas.o --omf_browse .\texas.crf --depend .\texas.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
+I (..\inc\../inc/CortexM.h)(0x5E10D01A)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2DA)
+I (..\inc\../inc/TExaS.h)(0x6005C608)
+I (..\inc\../inc/PLL.h)(0x5E10D0A6)
