@@ -22,6 +22,8 @@ const uint16_t uart_flag_finish = 2120;
 uint16_t prev_puck_x = 0;
 uint16_t prev_puck_y = 0;
 uint8_t currentSide = 1;
+uint8_t xspeed = 4;
+uint8_t yspeed = 4;
 
 void current_game_state(void){
 	ST7735_FillScreen(ST7735_WHITE);
@@ -114,15 +116,15 @@ void Timer1A_Handler()
 			switch(current_game.puck_direction){
 			//if direction is up
 			case(0):
-				current_game.puck_y--;
+				current_game.puck_y -= yspeed;
 				if(current_game.puck_y <= -149){
 					current_game.puck_direction = 4;
 				}
 				break;
 			//if direction is up & left
 			case(1):
-				current_game.puck_y--;
-				current_game.puck_x--;
+				current_game.puck_y -= yspeed;
+				current_game.puck_x -= xspeed;
 				if(current_game.puck_y <= -149){
 					current_game.puck_direction = 3;
 				}
@@ -132,15 +134,15 @@ void Timer1A_Handler()
 				break;
 			//if direction is left
 			case(2):
-				current_game.puck_x--;
+				current_game.puck_x -= xspeed;
 				if(current_game.puck_x <= 0){
 					current_game.puck_direction = 6;
 				}
 				break;
 			//if direction is down & left
 			case(3):
-				current_game.puck_y++;
-				current_game.puck_x--;
+				current_game.puck_y += yspeed;
+				current_game.puck_x -= xspeed;
 				if(current_game.puck_y >= 0){
 					transmit_puck_info();
 				}
@@ -150,15 +152,15 @@ void Timer1A_Handler()
 				break;
 			//if direction is down
 			case(4):
-				current_game.puck_y++;
+				current_game.puck_y += yspeed;
 				if(current_game.puck_y >= 0){
 					transmit_puck_info();
 				}
 				break;
 			//if direction is down & right
 			case(5):
-				current_game.puck_y++;
-				current_game.puck_x++;
+				current_game.puck_y += yspeed;
+				current_game.puck_x += xspeed;
 				if(current_game.puck_y >= 0){
 					transmit_puck_info();
 				}
@@ -168,15 +170,15 @@ void Timer1A_Handler()
 				break;
 			//if direction is right
 			case(6):
-				current_game.puck_x++;
+				current_game.puck_x += xspeed;
 				if(current_game.puck_x >= 117){
 					current_game.puck_direction = 2;
 				}
 				break;
 			//if direction is up & right
 			case(7):
-				current_game.puck_y--;
-				current_game.puck_x++;
+				current_game.puck_y -= yspeed;
+				current_game.puck_x += xspeed;
 				if(current_game.puck_y <= -149){
 					current_game.puck_direction = 5;
 				}

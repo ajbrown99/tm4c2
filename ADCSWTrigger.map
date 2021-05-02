@@ -546,46 +546,46 @@ Image Symbol Table
     i.ST7735_SetCursor                       0x00000c0c   Section        0  adctestmain.o(i.ST7735_SetCursor)
     i.Timer0A_Handler                        0x00000c2c   Section        0  controls.o(i.Timer0A_Handler)
     i.Timer1A_Handler                        0x00000c40   Section        0  game.o(i.Timer1A_Handler)
-    i.Timer1A_Init                           0x00000dc0   Section        0  ports.o(i.Timer1A_Init)
-    i.Timer2A_Handler                        0x00000e20   Section        0  game.o(i.Timer2A_Handler)
-    i.Timer2A_Init                           0x00000e94   Section        0  ports.o(i.Timer2A_Init)
-    i.TxFifo_Get                             0x00000eec   Section        0  uart.o(i.TxFifo_Get)
-    i.TxFifo_Init                            0x00000f28   Section        0  uart.o(i.TxFifo_Init)
-    i.TxFifo_Put                             0x00000f4c   Section        0  uart.o(i.TxFifo_Put)
-    i.TxFifo_Size                            0x00000f88   Section        0  uart.o(i.TxFifo_Size)
-    i.UART7_Handler                          0x00000f9c   Section        0  uart.o(i.UART7_Handler)
-    i.UART_InChar                            0x00000ff4   Section        0  uart.o(i.UART_InChar)
-    i.UART_Init                              0x00001008   Section        0  uart.o(i.UART_Init)
-    i.UART_OutChar                           0x000010cc   Section        0  uart.o(i.UART_OutChar)
-    i.Unified_Port_Init                      0x00001100   Section        0  ports.o(i.Unified_Port_Init)
-    i.commandList                            0x0000111c   Section        0  adctestmain.o(i.commandList)
-    commandList                              0x0000111d   Thumb Code    86  adctestmain.o(i.commandList)
-    i.commonInit                             0x00001174   Section        0  adctestmain.o(i.commonInit)
-    commonInit                               0x00001175   Thumb Code   342  adctestmain.o(i.commonInit)
-    i.copyHardwareToSoftware                 0x000012fc   Section        0  uart.o(i.copyHardwareToSoftware)
-    copyHardwareToSoftware                   0x000012fd   Thumb Code    36  uart.o(i.copyHardwareToSoftware)
-    i.copySoftwareToHardware                 0x00001324   Section        0  uart.o(i.copySoftwareToHardware)
-    copySoftwareToHardware                   0x00001325   Thumb Code    38  uart.o(i.copySoftwareToHardware)
-    i.current_game_state                     0x00001350   Section        0  game.o(i.current_game_state)
-    i.deselect                               0x0000135c   Section        0  adctestmain.o(i.deselect)
-    deselect                                 0x0000135d   Thumb Code    24  adctestmain.o(i.deselect)
-    i.main                                   0x00001378   Section        0  adctestmain.o(i.main)
-    i.rearmButtonsC                          0x000013bc   Section        0  controls.o(i.rearmButtonsC)
-    i.receive_puck_info                      0x00001400   Section        0  game.o(i.receive_puck_info)
-    i.setAddrWindow                          0x000014f8   Section        0  adctestmain.o(i.setAddrWindow)
-    setAddrWindow                            0x000014f9   Thumb Code   106  adctestmain.o(i.setAddrWindow)
-    i.transmit_puck_info                     0x0000156c   Section        0  game.o(i.transmit_puck_info)
-    i.writecommand                           0x000015fc   Section        0  adctestmain.o(i.writecommand)
-    writecommand                             0x000015fd   Thumb Code    46  adctestmain.o(i.writecommand)
-    i.writedata                              0x00001634   Section        0  adctestmain.o(i.writedata)
-    writedata                                0x00001635   Thumb Code    26  adctestmain.o(i.writedata)
-    .constdata                               0x00001658   Section     2114  adctestmain.o(.constdata)
-    Font                                     0x00001658   Data        1275  adctestmain.o(.constdata)
-    Bcmd                                     0x00001b53   Data         103  adctestmain.o(.constdata)
-    Rcmd1                                    0x00001bba   Data          59  adctestmain.o(.constdata)
-    Rcmd2green                               0x00001bf5   Data          13  adctestmain.o(.constdata)
-    Rcmd2red                                 0x00001c02   Data          13  adctestmain.o(.constdata)
-    Rcmd3                                    0x00001c0f   Data          43  adctestmain.o(.constdata)
+    i.Timer1A_Init                           0x00000e00   Section        0  ports.o(i.Timer1A_Init)
+    i.Timer2A_Handler                        0x00000e60   Section        0  game.o(i.Timer2A_Handler)
+    i.Timer2A_Init                           0x00000ed4   Section        0  ports.o(i.Timer2A_Init)
+    i.TxFifo_Get                             0x00000f2c   Section        0  uart.o(i.TxFifo_Get)
+    i.TxFifo_Init                            0x00000f68   Section        0  uart.o(i.TxFifo_Init)
+    i.TxFifo_Put                             0x00000f8c   Section        0  uart.o(i.TxFifo_Put)
+    i.TxFifo_Size                            0x00000fc8   Section        0  uart.o(i.TxFifo_Size)
+    i.UART7_Handler                          0x00000fdc   Section        0  uart.o(i.UART7_Handler)
+    i.UART_InChar                            0x00001034   Section        0  uart.o(i.UART_InChar)
+    i.UART_Init                              0x00001048   Section        0  uart.o(i.UART_Init)
+    i.UART_OutChar                           0x0000110c   Section        0  uart.o(i.UART_OutChar)
+    i.Unified_Port_Init                      0x00001140   Section        0  ports.o(i.Unified_Port_Init)
+    i.commandList                            0x0000115c   Section        0  adctestmain.o(i.commandList)
+    commandList                              0x0000115d   Thumb Code    86  adctestmain.o(i.commandList)
+    i.commonInit                             0x000011b4   Section        0  adctestmain.o(i.commonInit)
+    commonInit                               0x000011b5   Thumb Code   342  adctestmain.o(i.commonInit)
+    i.copyHardwareToSoftware                 0x0000133c   Section        0  uart.o(i.copyHardwareToSoftware)
+    copyHardwareToSoftware                   0x0000133d   Thumb Code    36  uart.o(i.copyHardwareToSoftware)
+    i.copySoftwareToHardware                 0x00001364   Section        0  uart.o(i.copySoftwareToHardware)
+    copySoftwareToHardware                   0x00001365   Thumb Code    38  uart.o(i.copySoftwareToHardware)
+    i.current_game_state                     0x00001390   Section        0  game.o(i.current_game_state)
+    i.deselect                               0x0000139c   Section        0  adctestmain.o(i.deselect)
+    deselect                                 0x0000139d   Thumb Code    24  adctestmain.o(i.deselect)
+    i.main                                   0x000013b8   Section        0  adctestmain.o(i.main)
+    i.rearmButtonsC                          0x000013fc   Section        0  controls.o(i.rearmButtonsC)
+    i.receive_puck_info                      0x00001440   Section        0  game.o(i.receive_puck_info)
+    i.setAddrWindow                          0x00001538   Section        0  adctestmain.o(i.setAddrWindow)
+    setAddrWindow                            0x00001539   Thumb Code   106  adctestmain.o(i.setAddrWindow)
+    i.transmit_puck_info                     0x000015ac   Section        0  game.o(i.transmit_puck_info)
+    i.writecommand                           0x0000163c   Section        0  adctestmain.o(i.writecommand)
+    writecommand                             0x0000163d   Thumb Code    46  adctestmain.o(i.writecommand)
+    i.writedata                              0x00001674   Section        0  adctestmain.o(i.writedata)
+    writedata                                0x00001675   Thumb Code    26  adctestmain.o(i.writedata)
+    .constdata                               0x00001698   Section     2114  adctestmain.o(.constdata)
+    Font                                     0x00001698   Data        1275  adctestmain.o(.constdata)
+    Bcmd                                     0x00001b93   Data         103  adctestmain.o(.constdata)
+    Rcmd1                                    0x00001bfa   Data          59  adctestmain.o(.constdata)
+    Rcmd2green                               0x00001c35   Data          13  adctestmain.o(.constdata)
+    Rcmd2red                                 0x00001c42   Data          13  adctestmain.o(.constdata)
+    Rcmd3                                    0x00001c4f   Data          43  adctestmain.o(.constdata)
     .data                                    0x20000000   Section       56  adctestmain.o(.data)
     ColStart                                 0x2000000a   Data           1  adctestmain.o(.data)
     RowStart                                 0x2000000b   Data           1  adctestmain.o(.data)
@@ -594,7 +594,7 @@ Image Symbol Table
     _width                                   0x2000000e   Data           2  adctestmain.o(.data)
     _height                                  0x20000010   Data           2  adctestmain.o(.data)
     .data                                    0x20000038   Section       16  uart.o(.data)
-    .data                                    0x20000048   Section       21  game.o(.data)
+    .data                                    0x20000048   Section       23  game.o(.data)
     .bss                                     0x20000060   Section      128  uart.o(.bss)
     RxFifo                                   0x20000060   Data          64  uart.o(.bss)
     TxFifo                                   0x200000a0   Data          64  uart.o(.bss)
@@ -845,29 +845,29 @@ Image Symbol Table
     ST7735_InitR                             0x00000b91   Thumb Code    90  adctestmain.o(i.ST7735_InitR)
     ST7735_SetCursor                         0x00000c0d   Thumb Code    22  adctestmain.o(i.ST7735_SetCursor)
     Timer0A_Handler                          0x00000c2d   Thumb Code    14  controls.o(i.Timer0A_Handler)
-    Timer1A_Handler                          0x00000c41   Thumb Code   376  game.o(i.Timer1A_Handler)
-    Timer1A_Init                             0x00000dc1   Thumb Code    78  ports.o(i.Timer1A_Init)
-    Timer2A_Handler                          0x00000e21   Thumb Code    96  game.o(i.Timer2A_Handler)
-    Timer2A_Init                             0x00000e95   Thumb Code    70  ports.o(i.Timer2A_Init)
-    TxFifo_Get                               0x00000eed   Thumb Code    46  uart.o(i.TxFifo_Get)
-    TxFifo_Init                              0x00000f29   Thumb Code    26  uart.o(i.TxFifo_Init)
-    TxFifo_Put                               0x00000f4d   Thumb Code    48  uart.o(i.TxFifo_Put)
-    TxFifo_Size                              0x00000f89   Thumb Code    12  uart.o(i.TxFifo_Size)
-    UART7_Handler                            0x00000f9d   Thumb Code    82  uart.o(i.UART7_Handler)
-    UART_InChar                              0x00000ff5   Thumb Code    20  uart.o(i.UART_InChar)
-    UART_Init                                0x00001009   Thumb Code   170  uart.o(i.UART_Init)
-    UART_OutChar                             0x000010cd   Thumb Code    46  uart.o(i.UART_OutChar)
-    Unified_Port_Init                        0x00001101   Thumb Code    28  ports.o(i.Unified_Port_Init)
-    current_game_state                       0x00001351   Thumb Code    12  game.o(i.current_game_state)
-    main                                     0x00001379   Thumb Code    60  adctestmain.o(i.main)
-    rearmButtonsC                            0x000013bd   Thumb Code    62  controls.o(i.rearmButtonsC)
-    receive_puck_info                        0x00001401   Thumb Code   232  game.o(i.receive_puck_info)
-    transmit_puck_info                       0x0000156d   Thumb Code   132  game.o(i.transmit_puck_info)
-    smallCircle                              0x00001c3a   Data          36  adctestmain.o(.constdata)
-    circle                                   0x00001c5e   Data          60  adctestmain.o(.constdata)
-    dBfs                                     0x00001c9a   Data         512  adctestmain.o(.constdata)
-    Region$$Table$$Base                      0x00001e9c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001ebc   Number         0  anon$$obj.o(Region$$Table)
+    Timer1A_Handler                          0x00000c41   Thumb Code   432  game.o(i.Timer1A_Handler)
+    Timer1A_Init                             0x00000e01   Thumb Code    78  ports.o(i.Timer1A_Init)
+    Timer2A_Handler                          0x00000e61   Thumb Code    96  game.o(i.Timer2A_Handler)
+    Timer2A_Init                             0x00000ed5   Thumb Code    70  ports.o(i.Timer2A_Init)
+    TxFifo_Get                               0x00000f2d   Thumb Code    46  uart.o(i.TxFifo_Get)
+    TxFifo_Init                              0x00000f69   Thumb Code    26  uart.o(i.TxFifo_Init)
+    TxFifo_Put                               0x00000f8d   Thumb Code    48  uart.o(i.TxFifo_Put)
+    TxFifo_Size                              0x00000fc9   Thumb Code    12  uart.o(i.TxFifo_Size)
+    UART7_Handler                            0x00000fdd   Thumb Code    82  uart.o(i.UART7_Handler)
+    UART_InChar                              0x00001035   Thumb Code    20  uart.o(i.UART_InChar)
+    UART_Init                                0x00001049   Thumb Code   170  uart.o(i.UART_Init)
+    UART_OutChar                             0x0000110d   Thumb Code    46  uart.o(i.UART_OutChar)
+    Unified_Port_Init                        0x00001141   Thumb Code    28  ports.o(i.Unified_Port_Init)
+    current_game_state                       0x00001391   Thumb Code    12  game.o(i.current_game_state)
+    main                                     0x000013b9   Thumb Code    60  adctestmain.o(i.main)
+    rearmButtonsC                            0x000013fd   Thumb Code    62  controls.o(i.rearmButtonsC)
+    receive_puck_info                        0x00001441   Thumb Code   232  game.o(i.receive_puck_info)
+    transmit_puck_info                       0x000015ad   Thumb Code   132  game.o(i.transmit_puck_info)
+    smallCircle                              0x00001c7a   Data          36  adctestmain.o(.constdata)
+    circle                                   0x00001c9e   Data          60  adctestmain.o(.constdata)
+    dBfs                                     0x00001cda   Data         512  adctestmain.o(.constdata)
+    Region$$Table$$Base                      0x00001edc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001efc   Number         0  anon$$obj.o(Region$$Table)
     StX                                      0x20000000   Data           4  adctestmain.o(.data)
     StY                                      0x20000004   Data           4  adctestmain.o(.data)
     StTextColor                              0x20000008   Data           2  adctestmain.o(.data)
@@ -889,6 +889,8 @@ Image Symbol Table
     prev_puck_x                              0x20000058   Data           2  game.o(.data)
     prev_puck_y                              0x2000005a   Data           2  game.o(.data)
     currentSide                              0x2000005c   Data           1  game.o(.data)
+    xspeed                                   0x2000005d   Data           1  game.o(.data)
+    yspeed                                   0x2000005e   Data           1  game.o(.data)
     __libspace_start                         0x200000e0   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000140   Data           0  libspace.o(.bss)
 
@@ -900,9 +902,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00001f1c, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00001f5c, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001ebc, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001efc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -983,48 +985,48 @@ Memory Map of the image
     0x00000b90   0x00000b90   0x0000007c   Code   RO           32    i.ST7735_InitR      adctestmain.o
     0x00000c0c   0x00000c0c   0x00000020   Code   RO           48    i.ST7735_SetCursor  adctestmain.o
     0x00000c2c   0x00000c2c   0x00000014   Code   RO          548    i.Timer0A_Handler   controls.o
-    0x00000c40   0x00000c40   0x00000180   Code   RO          789    i.Timer1A_Handler   game.o
-    0x00000dc0   0x00000dc0   0x00000060   Code   RO          590    i.Timer1A_Init      ports.o
-    0x00000e20   0x00000e20   0x00000074   Code   RO          790    i.Timer2A_Handler   game.o
-    0x00000e94   0x00000e94   0x00000058   Code   RO          591    i.Timer2A_Init      ports.o
-    0x00000eec   0x00000eec   0x0000003c   Code   RO          659    i.TxFifo_Get        uart.o
-    0x00000f28   0x00000f28   0x00000024   Code   RO          660    i.TxFifo_Init       uart.o
-    0x00000f4c   0x00000f4c   0x0000003c   Code   RO          661    i.TxFifo_Put        uart.o
-    0x00000f88   0x00000f88   0x00000014   Code   RO          662    i.TxFifo_Size       uart.o
-    0x00000f9c   0x00000f9c   0x00000058   Code   RO          663    i.UART7_Handler     uart.o
-    0x00000ff4   0x00000ff4   0x00000014   Code   RO          664    i.UART_InChar       uart.o
-    0x00001008   0x00001008   0x000000c4   Code   RO          669    i.UART_Init         uart.o
-    0x000010cc   0x000010cc   0x00000034   Code   RO          670    i.UART_OutChar      uart.o
-    0x00001100   0x00001100   0x0000001c   Code   RO          593    i.Unified_Port_Init  ports.o
-    0x0000111c   0x0000111c   0x00000056   Code   RO           57    i.commandList       adctestmain.o
-    0x00001172   0x00001172   0x00000002   PAD
-    0x00001174   0x00001174   0x00000188   Code   RO           58    i.commonInit        adctestmain.o
-    0x000012fc   0x000012fc   0x00000028   Code   RO          674    i.copyHardwareToSoftware  uart.o
-    0x00001324   0x00001324   0x0000002c   Code   RO          675    i.copySoftwareToHardware  uart.o
-    0x00001350   0x00001350   0x0000000c   Code   RO          791    i.current_game_state  game.o
-    0x0000135c   0x0000135c   0x0000001c   Code   RO           59    i.deselect          adctestmain.o
-    0x00001378   0x00001378   0x00000044   Code   RO           66    i.main              adctestmain.o
-    0x000013bc   0x000013bc   0x00000044   Code   RO          551    i.rearmButtonsC     controls.o
-    0x00001400   0x00001400   0x000000f8   Code   RO          792    i.receive_puck_info  game.o
-    0x000014f8   0x000014f8   0x00000074   Code   RO           70    i.setAddrWindow     adctestmain.o
-    0x0000156c   0x0000156c   0x00000090   Code   RO          793    i.transmit_puck_info  game.o
-    0x000015fc   0x000015fc   0x00000038   Code   RO           71    i.writecommand      adctestmain.o
-    0x00001634   0x00001634   0x00000024   Code   RO           72    i.writedata         adctestmain.o
-    0x00001658   0x00001658   0x00000842   Data   RO           74    .constdata          adctestmain.o
-    0x00001e9a   0x00001e9a   0x00000002   PAD
-    0x00001e9c   0x00001e9c   0x00000020   Data   RO         1000    Region$$Table       anon$$obj.o
+    0x00000c40   0x00000c40   0x000001c0   Code   RO          789    i.Timer1A_Handler   game.o
+    0x00000e00   0x00000e00   0x00000060   Code   RO          590    i.Timer1A_Init      ports.o
+    0x00000e60   0x00000e60   0x00000074   Code   RO          790    i.Timer2A_Handler   game.o
+    0x00000ed4   0x00000ed4   0x00000058   Code   RO          591    i.Timer2A_Init      ports.o
+    0x00000f2c   0x00000f2c   0x0000003c   Code   RO          659    i.TxFifo_Get        uart.o
+    0x00000f68   0x00000f68   0x00000024   Code   RO          660    i.TxFifo_Init       uart.o
+    0x00000f8c   0x00000f8c   0x0000003c   Code   RO          661    i.TxFifo_Put        uart.o
+    0x00000fc8   0x00000fc8   0x00000014   Code   RO          662    i.TxFifo_Size       uart.o
+    0x00000fdc   0x00000fdc   0x00000058   Code   RO          663    i.UART7_Handler     uart.o
+    0x00001034   0x00001034   0x00000014   Code   RO          664    i.UART_InChar       uart.o
+    0x00001048   0x00001048   0x000000c4   Code   RO          669    i.UART_Init         uart.o
+    0x0000110c   0x0000110c   0x00000034   Code   RO          670    i.UART_OutChar      uart.o
+    0x00001140   0x00001140   0x0000001c   Code   RO          593    i.Unified_Port_Init  ports.o
+    0x0000115c   0x0000115c   0x00000056   Code   RO           57    i.commandList       adctestmain.o
+    0x000011b2   0x000011b2   0x00000002   PAD
+    0x000011b4   0x000011b4   0x00000188   Code   RO           58    i.commonInit        adctestmain.o
+    0x0000133c   0x0000133c   0x00000028   Code   RO          674    i.copyHardwareToSoftware  uart.o
+    0x00001364   0x00001364   0x0000002c   Code   RO          675    i.copySoftwareToHardware  uart.o
+    0x00001390   0x00001390   0x0000000c   Code   RO          791    i.current_game_state  game.o
+    0x0000139c   0x0000139c   0x0000001c   Code   RO           59    i.deselect          adctestmain.o
+    0x000013b8   0x000013b8   0x00000044   Code   RO           66    i.main              adctestmain.o
+    0x000013fc   0x000013fc   0x00000044   Code   RO          551    i.rearmButtonsC     controls.o
+    0x00001440   0x00001440   0x000000f8   Code   RO          792    i.receive_puck_info  game.o
+    0x00001538   0x00001538   0x00000074   Code   RO           70    i.setAddrWindow     adctestmain.o
+    0x000015ac   0x000015ac   0x00000090   Code   RO          793    i.transmit_puck_info  game.o
+    0x0000163c   0x0000163c   0x00000038   Code   RO           71    i.writecommand      adctestmain.o
+    0x00001674   0x00001674   0x00000024   Code   RO           72    i.writedata         adctestmain.o
+    0x00001698   0x00001698   0x00000842   Data   RO           74    .constdata          adctestmain.o
+    0x00001eda   0x00001eda   0x00000002   PAD
+    0x00001edc   0x00001edc   0x00000020   Data   RO         1000    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001ebc, Size: 0x00000060, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001efc, Size: 0x00000060, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00001ebc   0x00000038   Data   RW           75    .data               adctestmain.o
-    0x20000038   0x00001ef4   0x00000010   Data   RW          677    .data               uart.o
-    0x20000048   0x00001f04   0x00000015   Data   RW          795    .data               game.o
+    0x20000000   0x00001efc   0x00000038   Data   RW           75    .data               adctestmain.o
+    0x20000038   0x00001f34   0x00000010   Data   RW          677    .data               uart.o
+    0x20000048   0x00001f44   0x00000017   Data   RW          795    .data               game.o
 
 
-    Execution Region ER_ZI (Exec base: 0x20000060, Load base: 0x00001f1c, Size: 0x000004e0, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000060, Load base: 0x00001f5c, Size: 0x000004e0, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1043,16 +1045,16 @@ Image component sizes
 
       1354        166       2114         56          0      15803   adctestmain.o
         88         12          0          0          0        798   controls.o
-       904         64          0         21          0       3864   game.o
+       968         72          0         23          0       3930   game.o
        124          4          0          0          0        451   pll.o
       1484        166          0          0          0       3954   ports.o
        692        632          0          0       1024        956   startup.o
        792        136          0         16        128       7399   uart.o
 
     ----------------------------------------------------------------------
-      5442       1180       2148         96       1152      33225   Object Totals
+      5506       1188       2148         96       1152      33291   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         4          0          2          3          0          0   (incl. Padding)
+         4          0          2          1          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1099,15 +1101,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5720       1196       2148         96       1248      31569   Grand Totals
-      5720       1196       2148         96       1248      31569   ELF Image Totals
-      5720       1196       2148         96          0          0   ROM Totals
+      5784       1204       2148         96       1248      31635   Grand Totals
+      5784       1204       2148         96       1248      31635   ELF Image Totals
+      5784       1204       2148         96          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7868 (   7.68kB)
+    Total RO  Size (Code + RO Data)                 7932 (   7.75kB)
     Total RW  Size (RW Data + ZI Data)              1344 (   1.31kB)
-    Total ROM Size (Code + RO Data + RW Data)       7964 (   7.78kB)
+    Total ROM Size (Code + RO Data + RW Data)       8028 (   7.84kB)
 
 ==============================================================================
 

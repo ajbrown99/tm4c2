@@ -1,7 +1,7 @@
 Dependencies for Project 'ADCSWTrigger', Target 'ADCSWTrigger': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (.\startup.s)(0x608DAB6E)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 533" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1" --pd "_RTE_ SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\ADCTestMain.c)(0x608DF6E5)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\adctestmain.o --omf_browse .\adctestmain.crf --depend .\adctestmain.d)
+F (.\ADCTestMain.c)(0x608E037B)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\adctestmain.o --omf_browse .\adctestmain.crf --depend .\adctestmain.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
 I (../inc/ADCSWTrigger.h)(0x5E1FCD86)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
@@ -48,7 +48,7 @@ F (.\UART.c)(0x608DF660)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --s
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
 I (UART.h)(0x608DAB6E)
-F (.\game.c)(0x608DFE98)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\game.o --omf_browse .\game.crf --depend .\game.d)
+F (.\game.c)(0x608E03F8)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_ADCSWTrigger-IC:\Users\b_q\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\b_q\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_LM4F120H5QR-o .\game.o --omf_browse .\game.crf --depend .\game.d)
 I (../inc/LaunchPad.h)(0x5E10D0A6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EF392)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
