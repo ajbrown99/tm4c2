@@ -2,6 +2,7 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "../inc/CortexM.h"
 #include "../inc/ST7735.h"
+#include "../inc/ADCSWTrigger.h"
 #include "game.h"
 #include "UART.h"
 #include <stdint.h>
@@ -24,6 +25,11 @@ uint16_t prev_puck_y = 0;
 uint8_t currentSide = 1;
 uint8_t xspeed = 4;
 uint8_t yspeed = 4;
+uint32_t data[2] = {0, 0};
+uint8_t paddlex = 64;
+uint8_t paddley = 135;
+uint8_t prevpaddlex = 0;
+uint8_t prevpaddley = 0;
 
 void current_game_state(void){
 	ST7735_FillScreen(ST7735_WHITE);
@@ -92,11 +98,25 @@ void receive_puck_info(void){
 
 void Timer2A_Handler()
 {
+	ST7735_DrawCircle(prevpaddlex,prevpaddley,ST7735_WHITE);
 	ST7735_DrawCircle(prev_puck_x,prev_puck_y,ST7735_WHITE);
 	if (currentSide == 2)
 	{
 			ST7735_DrawCircle(current_game.puck_x,abs(current_game.puck_y),ST7735_BLUE);
 	}
+	ST7735_DrawCircle(paddlex,paddley,ST7735_RED);
+	/*
+	ST7735_SetCursor(0,0);
+	ST7735_OutUDec(1000);
+	ST7735_SetCursor(0,0);
+	ST7735_OutUDec(data[0]);
+	ST7735_SetCursor(10,0);
+	ST7735_OutUDec(1000);
+	ST7735_SetCursor(10,0);
+	ST7735_OutUDec(data[1]);
+	*/
+	prevpaddlex = paddlex;
+	prevpaddley = paddley;
 	prev_puck_x = current_game.puck_x;
 	prev_puck_y = abs(current_game.puck_y);
 	TIMER2_ICR_R = TIMER_ICR_TATOCINT;
@@ -109,6 +129,52 @@ void Timer1A_Handler()
 {
 	TIMER1_ICR_R = TIMER_ICR_TATOCINT;
 	//if the game is running
+	ADC_In89(data);
+	if (data[0] > 3072)
+	{
+		if (data[1] > 3072)				//Down right (3)
+		{
+			if (paddlex < 117) paddlex+=2;
+			if (paddley < 149) paddley+=2;
+		}
+		else if (data[1] < 1028)	//Up right (1)
+		{
+			if (paddlex < 117) paddlex+=2;
+			if (paddley > 30) 	 paddley-=2;
+		}
+		else											//Right (2)
+		{
+			if (paddlex < 117) paddlex+=2;
+		}
+	}
+	else if (data[0] < 1028)
+	{
+		if (data[1] > 3072)				//Down left (5)
+		{
+			if (paddlex > 0)   paddlex-=2;
+			if (paddley < 149) paddley+=2;
+		}
+		else if (data[1] < 1028)	//Up left (7)
+		{
+			if (paddlex > 0)   paddlex-=2;
+			if (paddley > 30)  paddley-=2;
+		}
+		else
+		{
+			if (paddlex > 0)   paddlex-=2;							//Left (6)
+		}
+	}
+	else
+	{
+		if (data[1] > 3072)				//Down (4)
+		{
+			if (paddley < 149) paddley+=2;
+		} 
+		else if (data[1] < 1028)	//Up (0)
+		{
+			if (paddley > 30)  paddley-=2;
+		}
+	}
 	if(current_game.stop_start){
 		
 		if(current_game.puck_y < 0){
@@ -189,7 +255,7 @@ void Timer1A_Handler()
 			}
 		}
 		else {
-			current_game_state();
+			//current_game_state();
 		}
 	}
 }

@@ -54,6 +54,7 @@ int main(void)
 	DisableInterrupts();
 	PLL_Init(Bus80MHz);
 	Unified_Port_Init();
+	ADC_Init89();
 	//ST7735_InitB();
 	ST7735_InitR(INITR_REDTAB);
 	UART_Init();
