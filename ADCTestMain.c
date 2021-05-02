@@ -57,8 +57,8 @@ int main(void)
 	//ST7735_InitB();
 	ST7735_InitR(INITR_REDTAB);
 	UART_Init();
-	//Timer2A_Init(2000000,1);
-	Timer1A_Init(1333333,5);
+	Timer2A_Init(1333333,5);
+	Timer1A_Init(7000000,3);
 	ST7735_FillScreen(ST7735_WHITE);
 	
 	//DAC_Init(0);
