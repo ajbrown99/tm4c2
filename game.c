@@ -122,12 +122,108 @@ void Timer2A_Handler()
 	TIMER2_ICR_R = TIMER_ICR_TATOCINT;
 }
 
+int detectCollision()
+{
+	
+	int absolute_puck_y = abs(current_game.puck_y);
+	
+	int rightPuck = current_game.puck_x + 5;	//right puck
+	int leftPuck = current_game.puck_x - 5;	//left puck
+	int bottomPuck = absolute_puck_y + 5;	//bottom puck
+	int topPuck = absolute_puck_y - 5;	//top puck
+	
+	int rightPaddle = paddlex + 5;	//right paddle
+	int leftPaddle = paddlex - 5;	//left paddle
+	int bottomPaddle = paddley + 5;	//bottom paddle
+	int topPaddle = paddley - 5;	//top paddle
+	
+	int topPaddleBottomPuckY = topPaddle - bottomPuck; //difference in y pos btwn top of paddle & bottom of puck
+	int bottomPaddleTopPuckY = bottomPaddle - topPuck; //difference in y pos btwn bottom of paddle & top of puck
+	
+	int rightPaddleLeftPuckX = rightPaddle - leftPuck; //difference in x pos btwn right of paddle & left of puck
+	int leftPaddleRightPuckX = leftPaddle - rightPuck; //difference in x pos btwn left of paddle & right of puck
+	
+	int x_difference = paddlex - current_game.puck_x;  //if x_difference < 0, then paddle is to the left of the puck
+	int y_difference = paddley - absolute_puck_y;  //if y_difference < 0, then paddle is above the puck
+	
+	if (topPaddleBottomPuckY >= -4 && topPaddleBottomPuckY <= 0)
+	{
+		//check to see if the puck will now collide & go in the up right direction 
+		if(x_difference >= -5 && x_difference <= -2){
+			return 5;
+		}
+		//check to see if puck will now collide & go in the up direction
+		else if(x_difference > -2 && x_difference < 2){
+			return 4;
+		}
+		//check to see if puck will now collide & go in the up left direction
+		else if(x_difference >= 2 && x_difference <= 5){
+			return 3;
+		}
+		
+		//if (topPaddleBottomPuckX <= 10) return 0;	//topPaddle hits bottomPuck
+	}
+	
+	if (bottomPaddleTopPuckY >= -4 && bottomPaddleTopPuckY <= 0){
+		
+		//if (bottomPaddleTopPuckX <= 10) return 1; //bottom of paddle hits the top of the puck
+		//check to see if the puck will now collide & go in the down right direction 
+		if(x_difference >= -5 && x_difference <= -2){
+			return 7;
+		}
+		//check to see if puck will now collide & go in the down direction
+		else if(x_difference > -2 && x_difference < 2){
+			return 0;
+		}
+		//check to see if puck will now collide & go in the down left direction
+		else if(x_difference >= 2 && x_difference <= 5){
+			return 1;
+		}
+	}
+	
+	if(rightPaddleLeftPuckX >= -4 && rightPaddleLeftPuckX <= 0){
+		//puck will now go down right
+		if(y_difference >= -5 && y_difference <= -2){
+			return 7;
+		}
+		//puck will now go right
+		else if(y_difference > -2 && y_difference < 2){
+			return 6;
+		}
+		//puck will now go up right
+		else if(y_difference >= 2 && y_difference <= 5){
+			return 5;
+		}
+	}
+	
+	if(leftPaddleRightPuckX >= -4 && leftPaddleRightPuckX <= 0){
+		//puck will now go down left
+		if(y_difference >= -5 && y_difference <= -2){
+			return 1;
+		}
+		//puck will now go left
+		else if(y_difference > -2 && y_difference < 2){
+			return 2;
+		}
+		//puck will now go up left
+		else if(y_difference >= 2 && y_difference <= 5){
+			return 3;
+		}
+	}
+	
+	return -1;
+}
+
 //will need to change bouncing logic later for 2 LCD's
 //____________________________________________________
 //____________________________________________________
 void Timer1A_Handler()
 {
 	TIMER1_ICR_R = TIMER_ICR_TATOCINT;
+	int collisionValue = detectCollision();
+	if(collisionValue != -1){
+		current_game.puck_direction = collisionValue;
+	}
 	//if the game is running
 	ADC_In89(data);
 	if (data[0] > 3072)
