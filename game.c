@@ -149,7 +149,7 @@ int detectCollision()
 	if (topPaddleBottomPuckY >= -4 && topPaddleBottomPuckY <= 0)
 	{
 		//check to see if the puck will now collide & go in the up right direction 
-		if(x_difference >= -5 && x_difference <= -2){
+		if(x_difference >= -6 && x_difference <= -2){
 			return 5;
 		}
 		//check to see if puck will now collide & go in the up direction
@@ -157,7 +157,7 @@ int detectCollision()
 			return 4;
 		}
 		//check to see if puck will now collide & go in the up left direction
-		else if(x_difference >= 2 && x_difference <= 5){
+		else if(x_difference >= 2 && x_difference <= 6){
 			return 3;
 		}
 		
@@ -168,7 +168,7 @@ int detectCollision()
 		
 		//if (bottomPaddleTopPuckX <= 10) return 1; //bottom of paddle hits the top of the puck
 		//check to see if the puck will now collide & go in the down right direction 
-		if(x_difference >= -5 && x_difference <= -2){
+		if(x_difference >= -6 && x_difference <= -2){
 			return 7;
 		}
 		//check to see if puck will now collide & go in the down direction
@@ -176,14 +176,14 @@ int detectCollision()
 			return 0;
 		}
 		//check to see if puck will now collide & go in the down left direction
-		else if(x_difference >= 2 && x_difference <= 5){
+		else if(x_difference >= 2 && x_difference <= 6){
 			return 1;
 		}
 	}
 	
 	if(rightPaddleLeftPuckX >= -4 && rightPaddleLeftPuckX <= 0){
 		//puck will now go down right
-		if(y_difference >= -5 && y_difference <= -2){
+		if(y_difference >= -6 && y_difference <= -2){
 			return 7;
 		}
 		//puck will now go right
@@ -191,14 +191,14 @@ int detectCollision()
 			return 6;
 		}
 		//puck will now go up right
-		else if(y_difference >= 2 && y_difference <= 5){
+		else if(y_difference >= 2 && y_difference <= 6){
 			return 5;
 		}
 	}
 	
 	if(leftPaddleRightPuckX >= -4 && leftPaddleRightPuckX <= 0){
 		//puck will now go down left
-		if(y_difference >= -5 && y_difference <= -2){
+		if(y_difference >= -6 && y_difference <= -2){
 			return 1;
 		}
 		//puck will now go left
@@ -206,7 +206,7 @@ int detectCollision()
 			return 2;
 		}
 		//puck will now go up left
-		else if(y_difference >= 2 && y_difference <= 5){
+		else if(y_difference >= 2 && y_difference <= 6){
 			return 3;
 		}
 	}
