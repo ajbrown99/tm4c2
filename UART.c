@@ -226,12 +226,19 @@ char UART_InChar(void){
 					ST7735_FillScreen(ST7735_RED);
 				}
 				ST7735_DrawCharS(30, 60, 'G', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(50, 60, 'A', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(70, 60, 'M', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(90, 60, 'E', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(30, 90, 'O', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(50, 90, 'V', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(70, 90, 'E', ST7735_WHITE, ST7735_WHITE, 3);
+				for (int delay = 0; delay < 5000000; delay++);
 				ST7735_DrawCharS(90, 90, 'R', ST7735_WHITE, ST7735_WHITE, 3);
 			}
 			else display_game();
