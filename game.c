@@ -23,8 +23,8 @@ const uint16_t uart_flag_finish = 2120;
 uint16_t prev_puck_x = 0;
 uint16_t prev_puck_y = 0;
 uint8_t currentSide = 1;
-uint8_t xspeed = 4;
-uint8_t yspeed = 4;
+uint8_t xspeed = 1;
+uint8_t yspeed = 1;
 uint32_t data[2] = {0, 0};
 uint8_t paddlex = 64;
 uint8_t paddley = 135;
@@ -120,7 +120,7 @@ void display_game(){
 void Timer2A_Handler()
 {
 	TIMER2_ICR_R = TIMER_ICR_TATOCINT;
-	display_game();
+	//display_game();
 	
 }
 
@@ -229,6 +229,12 @@ void Timer1A_Handler()
 		current_game.puck_direction = 8;
 		current_game.puck_x = 64;
 		current_game.puck_y = -80;
+		if (current_game.player_1_score == 1)
+		{
+			current_game.puck_direction = 4;
+			current_game.puck_y = -1;
+			current_game.game_over = true;
+		}
 	}
 	if(collisionValue != -1){
 		current_game.puck_direction = collisionValue;
@@ -238,45 +244,45 @@ void Timer1A_Handler()
 	{
 		if (data[1] > 3072)				//Down right (3)
 		{
-			if (paddlex < 117) paddlex+=2;
-			if (paddley < 149) paddley+=2;
+			if (paddlex < 117) paddlex+=1;
+			if (paddley < 149) paddley+=1;
 		}
 		else if (data[1] < 1028)	//Up right (1)
 		{
-			if (paddlex < 117) paddlex+=2;
-			if (paddley > 30) 	 paddley-=2;
+			if (paddlex < 117) paddlex+=1;
+			if (paddley > 30) 	 paddley-=1;
 		}
 		else											//Right (2)
 		{
-			if (paddlex < 117) paddlex+=2;
+			if (paddlex < 117) paddlex+=1;
 		}
 	}
 	else if (data[0] < 1028)
 	{
 		if (data[1] > 3072)				//Down left (5)
 		{
-			if (paddlex > 0)   paddlex-=2;
-			if (paddley < 149) paddley+=2;
+			if (paddlex > 0)   paddlex-=1;
+			if (paddley < 149) paddley+=1;
 		}
 		else if (data[1] < 1028)	//Up left (7)
 		{
-			if (paddlex > 0)   paddlex-=2;
-			if (paddley > 30)  paddley-=2;
+			if (paddlex > 0)   paddlex-=1;
+			if (paddley > 30)  paddley-=1;
 		}
 		else
 		{
-			if (paddlex > 0)   paddlex-=2;							//Left (6)
+			if (paddlex > 0)   paddlex-=1;							//Left (6)
 		}
 	}
 	else
 	{
 		if (data[1] > 3072)				//Down (4)
 		{
-			if (paddley < 149) paddley+=2;
+			if (paddley < 149) paddley+=1;
 		} 
 		else if (data[1] < 1028)	//Up (0)
 		{
-			if (paddley > 30)  paddley-=2;
+			if (paddley > 30)  paddley-=1;
 		}
 	}
 	if(current_game.stop_start){

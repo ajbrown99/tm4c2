@@ -209,14 +209,33 @@ extern uint8_t paddlex;
 extern uint8_t paddley;
 extern uint8_t currentSide;
 uint32_t counter = 0;
+uint8_t drawBG = 1;
 char UART_InChar(void){
   char letter;
   while(RxFifo_Get(&letter) == FIFOFAIL)
 	{
-		if (counter == 5000000)
+		if (counter == 50000)
 		{
 			counter = 0;
-			display_game();
+			DisableInterrupts();
+			if (current_game.game_over)
+			{
+				if (drawBG)
+				{
+					drawBG = 0;
+					ST7735_FillScreen(ST7735_RED);
+				}
+				ST7735_DrawCharS(30, 60, 'G', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(50, 60, 'A', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(70, 60, 'M', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(90, 60, 'E', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(30, 90, 'O', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(50, 90, 'V', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(70, 90, 'E', ST7735_WHITE, ST7735_WHITE, 3);
+				ST7735_DrawCharS(90, 90, 'R', ST7735_WHITE, ST7735_WHITE, 3);
+			}
+			else display_game();
+			EnableInterrupts();
 		}
 		else counter++;
 	}
