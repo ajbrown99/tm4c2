@@ -10,6 +10,7 @@ void current_game_state(void);
 void transmit_puck_info(void);
 void receive_puck_info(void);
 int detectCollision(void);
+bool goalScored(void);
 
 struct game_status {
 	bool game_over;

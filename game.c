@@ -98,6 +98,11 @@ void receive_puck_info(void){
 
 void Timer2A_Handler()
 {
+	ST7735_SetCursor(0,0);
+	ST7735_OutUDec(current_game.player_2_score);
+	ST7735_DrawFastVLine(34,130,30,ST7735_BLUE);
+	ST7735_DrawFastVLine(94,130,30,ST7735_BLUE);
+	ST7735_DrawFastHLine(34,130,60,ST7735_BLUE);
 	ST7735_DrawCircle(prevpaddlex,prevpaddley,ST7735_WHITE);
 	ST7735_DrawCircle(prev_puck_x,prev_puck_y,ST7735_WHITE);
 	if (currentSide == 2)
@@ -221,6 +226,13 @@ void Timer1A_Handler()
 {
 	TIMER1_ICR_R = TIMER_ICR_TATOCINT;
 	int collisionValue = detectCollision();
+	if (goalScored()) 
+	{
+		current_game.player_1_score++;
+		current_game.puck_direction = 8;
+		current_game.puck_x = 64;
+		current_game.puck_y = -80;
+	}
 	if(collisionValue != -1){
 		current_game.puck_direction = collisionValue;
 	}
@@ -354,4 +366,16 @@ void Timer1A_Handler()
 			//current_game_state();
 		}
 	}
+}
+
+bool goalScored()
+{
+	if (current_game.puck_y <= -149)
+	{
+		if (current_game.puck_x <= 89 && current_game.puck_x >= 39)
+		{
+			return true;
+		}
+	}
+	return false;
 }

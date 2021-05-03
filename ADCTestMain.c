@@ -59,10 +59,8 @@ int main(void)
 	ST7735_InitR(INITR_REDTAB);
 	UART_Init();
 	Timer2A_Init(1333333,5);
-	Timer1A_Init(6000000,3);
+	Timer1A_Init(6666666,3);
 	ST7735_FillScreen(ST7735_WHITE);
-	ST7735_DrawFastVLine(30,130,30,ST7735_BLUE);
-	ST7735_DrawFastVLine(90,130,30,ST7735_BLUE);
 	
 	//DAC_Init(0);
 	//playSong();
