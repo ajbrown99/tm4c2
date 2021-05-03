@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\ADCSWTrigger.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\ADCSWTrigger.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon May 03 14:03:44 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon May 03 16:42:43 2021
 <BR><P>
-<H3>Maximum Stack Usage =        168 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-Timer2A_Handler &rArr; display_game &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+__rt_entry_main &rArr; main &rArr; receive_puck_info &rArr; UART_InChar &rArr; display_game &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 <P>
 <H3>
 Functions with no stack information
@@ -684,8 +684,8 @@ Global Symbols
 <P><STRONG><a name="[eb]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[89]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; ST7735_InitR &rArr; ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
+<BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; receive_puck_info &rArr; UART_InChar &rArr; display_game &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -803,7 +803,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Unified_Port_Init
 </UL>
 
-<P><STRONG><a name="[bb]"></a>Port_C_Init</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, ports.o(i.Port_C_Init))
+<P><STRONG><a name="[bb]"></a>Port_C_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, ports.o(i.Port_C_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Unified_Port_Init
 </UL>
 
@@ -1011,10 +1011,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[b3]"></a>UART_InChar</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, uart.o(i.UART_InChar))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_InChar
+<P><STRONG><a name="[b3]"></a>UART_InChar</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, uart.o(i.UART_InChar))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = UART_InChar &rArr; display_game &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Get
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_game
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Get
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_puck_info
 </UL>
@@ -1067,6 +1068,7 @@ Global Symbols
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Handler
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InChar
 </UL>
 
 <P><STRONG><a name="[a8]"></a>fillmessage</STRONG> (Thumb, 64 bytes, Stack size 12 bytes, adctestmain.o(i.fillmessage))
@@ -1083,9 +1085,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Handler
 </UL>
 
-<P><STRONG><a name="[8a]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, adctestmain.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80 + Unknown Stack Size
-<LI>Call Chain = main &rArr; ST7735_InitR &rArr; ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[8a]"></a>main</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, adctestmain.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
+<LI>Call Chain = main &rArr; receive_puck_info &rArr; UART_InChar &rArr; display_game &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_puck_info
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Unified_Port_Init
@@ -1106,15 +1108,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
 </UL>
 
-<P><STRONG><a name="[c9]"></a>receive_puck_info</STRONG> (Thumb, 232 bytes, Stack size 8 bytes, game.o(i.receive_puck_info))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = receive_puck_info &rArr; UART_InChar
+<P><STRONG><a name="[c9]"></a>receive_puck_info</STRONG> (Thumb, 246 bytes, Stack size 8 bytes, game.o(i.receive_puck_info))
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = receive_puck_info &rArr; UART_InChar &rArr; display_game &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ad]"></a>transmit_puck_info</STRONG> (Thumb, 132 bytes, Stack size 8 bytes, game.o(i.transmit_puck_info))
+<P><STRONG><a name="[ad]"></a>transmit_puck_info</STRONG> (Thumb, 146 bytes, Stack size 8 bytes, game.o(i.transmit_puck_info))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = transmit_puck_info &rArr; UART_OutChar &rArr; copySoftwareToHardware
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar

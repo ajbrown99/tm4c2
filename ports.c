@@ -180,13 +180,14 @@ void Port_C_Init(void){
  while((SYSCTL_PRGPIO_R & 0x04) != 0x04){}; // Allow time for clock to start
 
  GPIO_PORTC_PCTL_R &= ~0xFFFF0000; // regular GPIO
- GPIO_PORTC_AMSEL_R &= ~0x30; // disable analog function on PC4,5
+ //GPIO_PORTC_AMSEL_R &= ~0x30; // disable analog function on PC4,5
  GPIO_PORTC_AMSEL_R |= 0xC0; // enable analog function on PC6,7
  GPIO_PORTC_DIR_R &= ~0xF0; // inputs on PC7-PC4
+ GPIO_PORTC_DIR_R |= 0x30;
  GPIO_PORTC_AFSEL_R &= ~0xF0; // regular port function
  GPIO_PORTC_PUR_R = 0x00; // disable pull-up on PC7-PC4
  GPIO_PORTC_PDR_R = 0x30;	// enable pull-down on PC4,5
- GPIO_PORTC_DEN_R |= 0x0; // enable digital port
+ GPIO_PORTC_DEN_R |= 0x30; // enable digital port
  }
 
 // ----------------------------------------------------------------------------

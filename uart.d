@@ -2,3 +2,8 @@
 .\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uart.o: ../inc/tm4c123gh6pm.h
 .\uart.o: UART.h
+.\uart.o: game.h
+.\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\uart.o: ../inc/ST7735.h
+.\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

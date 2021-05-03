@@ -30,6 +30,7 @@
 #include "../inc/tm4c123gh6pm.h"
 
 #include "UART.h"
+#include "game.h"
 
 #define NVIC_EN0_INT5           0x00000020  // Interrupt 5 enable
 
@@ -194,9 +195,31 @@ void static copySoftwareToHardware(void){
 }
 // input ASCII character from UART
 // spin if RxFifo is empty
+#include "../inc/ST7735.h"
+#include <math.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+extern struct game_status current_game;
+extern uint16_t prev_puck_x;
+extern uint16_t prev_puck_y;
+extern uint8_t prevpaddlex;
+extern uint8_t prevpaddley;
+extern uint8_t paddlex;
+extern uint8_t paddley;
+extern uint8_t currentSide;
+uint32_t counter = 0;
 char UART_InChar(void){
   char letter;
-  while(RxFifo_Get(&letter) == FIFOFAIL){};
+  while(RxFifo_Get(&letter) == FIFOFAIL)
+	{
+		if (counter == 5000000)
+		{
+			counter = 0;
+			display_game();
+		}
+		else counter++;
+	}
   return(letter);
 }
 // input ASCII character from UART

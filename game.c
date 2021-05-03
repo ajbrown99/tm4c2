@@ -51,6 +51,7 @@ void transmit_puck_info(void){
 	UART_OutChar((char)current_game.stop_start);
 	UART_OutChar('j');
 	PF2 ^= 0x4;
+	GPIO_PORTC_DATA_R &= ~0x30;
 }
 
 void receive_puck_info(void){
@@ -58,6 +59,7 @@ void receive_puck_info(void){
 	uint32_t input = UART_InChar();
 	if (currentSide == 1) currentSide = 2;
 	else currentSide = 1;
+	GPIO_PORTC_DATA_R |= 0x30;
 	PF1 ^= 0x2;
 	//ST7735_OutUDec(input);
 	if(count == 0){
@@ -109,7 +111,6 @@ void display_game(){
 			ST7735_DrawCircle(current_game.puck_x,abs(current_game.puck_y),ST7735_BLUE);
 	}
 	ST7735_DrawCircle(paddlex,paddley,ST7735_BLACK);
-	
 	prevpaddlex = paddlex;
 	prevpaddley = paddley;
 	prev_puck_x = current_game.puck_x;
