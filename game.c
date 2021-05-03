@@ -104,7 +104,7 @@ void Timer2A_Handler()
 	{
 			ST7735_DrawCircle(current_game.puck_x,abs(current_game.puck_y),ST7735_BLUE);
 	}
-	ST7735_DrawCircle(paddlex,paddley,ST7735_RED);
+	ST7735_DrawCircle(paddlex,paddley,ST7735_BLACK);
 	/*
 	ST7735_SetCursor(0,0);
 	ST7735_OutUDec(1000);
@@ -146,7 +146,7 @@ int detectCollision()
 	int x_difference = paddlex - current_game.puck_x;  //if x_difference < 0, then paddle is to the left of the puck
 	int y_difference = paddley - absolute_puck_y;  //if y_difference < 0, then paddle is above the puck
 	
-	if (topPaddleBottomPuckY >= -4 && topPaddleBottomPuckY <= 0)
+	if (topPaddleBottomPuckY >= -4 && topPaddleBottomPuckY <= 4)
 	{
 		//check to see if the puck will now collide & go in the up right direction 
 		if(x_difference >= -6 && x_difference <= -2){
@@ -164,7 +164,7 @@ int detectCollision()
 		//if (topPaddleBottomPuckX <= 10) return 0;	//topPaddle hits bottomPuck
 	}
 	
-	if (bottomPaddleTopPuckY >= -4 && bottomPaddleTopPuckY <= 0){
+	if (bottomPaddleTopPuckY >= -4 && bottomPaddleTopPuckY <= 4){
 		
 		//if (bottomPaddleTopPuckX <= 10) return 1; //bottom of paddle hits the top of the puck
 		//check to see if the puck will now collide & go in the down right direction 
@@ -181,7 +181,7 @@ int detectCollision()
 		}
 	}
 	
-	if(rightPaddleLeftPuckX >= -4 && rightPaddleLeftPuckX <= 0){
+	if(rightPaddleLeftPuckX >= -4 && rightPaddleLeftPuckX <= 4){
 		//puck will now go down right
 		if(y_difference >= -6 && y_difference <= -2){
 			return 7;
@@ -196,7 +196,7 @@ int detectCollision()
 		}
 	}
 	
-	if(leftPaddleRightPuckX >= -4 && leftPaddleRightPuckX <= 0){
+	if(leftPaddleRightPuckX >= -4 && leftPaddleRightPuckX <= 4){
 		//puck will now go down left
 		if(y_difference >= -6 && y_difference <= -2){
 			return 1;
