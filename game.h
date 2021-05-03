@@ -23,4 +23,6 @@ struct game_status {
 	bool stop_start; //0:stop,1:start
 };
 
+void display_game(void);
+
 extern struct game_status current_game;

@@ -71,20 +71,10 @@ int main(void)
 	
 	while(1)
 	{
-		//for(int i = 0; i < 1000000; i++);
-		//uint32_t test = UART_InChar();
+		
 		receive_puck_info();
 		
-		//ST7735_OutChar(test);
-		/*
-    n = (n + 1) % 212;
-		UART_OutUDec(n);
-		OutCRLF();
-		uint32_t result = UART_InUDec();
-		ST7735_OutUDec(result);
-		//RxFifo_Init();
-		//TxFifo_Init();
-		*/
+		
   }
 }
 

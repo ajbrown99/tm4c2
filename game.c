@@ -96,8 +96,7 @@ void receive_puck_info(void){
 	count = (count + 1) % 9;
 }
 
-void Timer2A_Handler()
-{
+void display_game(){
 	ST7735_SetCursor(0,0);
 	ST7735_OutUDec(current_game.player_2_score);
 	ST7735_DrawFastVLine(34,130,30,ST7735_BLUE);
@@ -110,21 +109,18 @@ void Timer2A_Handler()
 			ST7735_DrawCircle(current_game.puck_x,abs(current_game.puck_y),ST7735_BLUE);
 	}
 	ST7735_DrawCircle(paddlex,paddley,ST7735_BLACK);
-	/*
-	ST7735_SetCursor(0,0);
-	ST7735_OutUDec(1000);
-	ST7735_SetCursor(0,0);
-	ST7735_OutUDec(data[0]);
-	ST7735_SetCursor(10,0);
-	ST7735_OutUDec(1000);
-	ST7735_SetCursor(10,0);
-	ST7735_OutUDec(data[1]);
-	*/
+	
 	prevpaddlex = paddlex;
 	prevpaddley = paddley;
 	prev_puck_x = current_game.puck_x;
 	prev_puck_y = abs(current_game.puck_y);
+}
+
+void Timer2A_Handler()
+{
 	TIMER2_ICR_R = TIMER_ICR_TATOCINT;
+	display_game();
+	
 }
 
 int detectCollision()
@@ -236,7 +232,6 @@ void Timer1A_Handler()
 	if(collisionValue != -1){
 		current_game.puck_direction = collisionValue;
 	}
-	//if the game is running
 	ADC_In89(data);
 	if (data[0] > 3072)
 	{
