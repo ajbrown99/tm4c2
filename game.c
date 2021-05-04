@@ -229,12 +229,11 @@ void Timer1A_Handler()
 		current_game.puck_direction = 8;
 		current_game.puck_x = 64;
 		current_game.puck_y = -80;
-		if (current_game.player_1_score == 7)
+		if (current_game.player_1_score == 1)
 		{
 			current_game.puck_direction = 4;
 			current_game.puck_y = -1;
 			current_game.game_over = true;
-			transmit_puck_info();
 		}
 	}
 	if(collisionValue != -1){

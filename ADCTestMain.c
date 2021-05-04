@@ -60,7 +60,7 @@ int main(void)
 	ST7735_InitR(INITR_REDTAB);
 	UART_Init();
 	//Timer2A_Init(1333333,5);
-	Timer1A_Init(1333333,3);
+	Timer1A_Init(2000000,3);
 	ST7735_FillScreen(ST7735_WHITE);
 	GPIO_PORTC_DATA_R &= ~ 0x30;
 	//DAC_Init(0);

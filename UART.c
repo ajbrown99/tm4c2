@@ -218,9 +218,9 @@ char UART_InChar(void){
 		{
 			counter = 0;
 			DisableInterrupts();
-			if (current_game.game_over)
+			if (current_game.game_over == true)
 			{
-				if (drawBG)
+				if (drawBG == true)
 				{
 					drawBG = 0;
 					ST7735_FillScreen(ST7735_RED);
